@@ -1,0 +1,3 @@
+#!/bin/sh
+
+killall kdeconnectd  || /usr/lib/kdeconnectd
