@@ -1,0 +1,21 @@
+#!/bin/bash
+domain=$(echo "github.com
+gitlab.com
+bitbucket.com
+gitkraken.com" | rofi -dmenu -p "Set Domain Name: ")
+[[ -z $domain ]] && exit
+
+username=$(rofi -dmenu -p "Set Username: ")
+[[ -z $username ]] && exit
+ssh_id=$(rofi -dmenu -p "Set SSH ID: ")
+[[ -z $ssh_id ]] && exit
+cd ~/.ssh
+echo -e "\nHost $username.$domain
+\tHostName $domain
+\tPreferredAuthentications publickey
+\tIdentityFile ~/.ssh/id_$ssh_id" >> config
+note "New Git SSH Has Been Added"
+
+eval `ssh-agent -s`
+ssh-add ~/.ssh/id_$ssh_id
+

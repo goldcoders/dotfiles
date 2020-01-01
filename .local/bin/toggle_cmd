@@ -1,0 +1,6 @@
+#!/bin/sh
+cwd=$(pwd)
+
+cd /home/uriah/.local/bin
+ls toggle_* | grep -v 'toggle_cmd'
+cd $cwd

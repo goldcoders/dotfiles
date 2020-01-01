@@ -1,0 +1,6 @@
+#!/bin/sh
+cwd=$(pwd)
+
+cd ~/.local/bin
+ls nw_* | grep -v 'nw_cmd'
+cd $cwd

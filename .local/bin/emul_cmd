@@ -1,0 +1,6 @@
+#!/bin/sh
+cwd=$(pwd)
+
+cd /home/uriah/.local/bin
+ls emulator_* | grep -v 'emulator_cmd'
+cd $cwd

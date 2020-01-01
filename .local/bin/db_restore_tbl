@@ -1,0 +1,6 @@
+#!/bin/sh
+dbname=$1
+tbl=$2
+
+mysql -u$DBUSER -p$DBPASS $dbname < $tbl
+

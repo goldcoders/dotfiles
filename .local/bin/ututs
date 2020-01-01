@@ -1,0 +1,11 @@
+#!/bin/sh
+
+#vidlist=$(cat ~/.tutorials)
+#echo "$vidlist" | grep -P "^$(echo "$vidlist" | grep "https:" | sed 's/\t.*//g' | dmenu -sb "#e34343" -fn "Hack-18" -i -p "Learn about what? (ESC to cancel)" -l 20 | awk '{print $1}')\s" | sed 's/.*\t//' | xargs -r mpv
+base_path=~/.tutorials
+selected_folder=$(ls $base_path | rofi -dmenu -p "Pick A Topic:")
+selected_file=$(ls $base_path/$selected_folder | rofi -dmenu -p "Pick A File")
+file_path=$base_path/$selected_folder/$selected_file
+
+cat $file_path | rofi -dmenu -p "Choose Video :" | awk '{print $2}' | xargs -r mpv
+

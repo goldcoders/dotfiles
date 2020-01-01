@@ -1,0 +1,21 @@
+#!/bin/sh
+# Using JQ OLD
+# tmp=$(mktemp)
+# DELETE ENTRY
+# jq --arg key0   $1 \
+#    --arg value0 '~/MEGAsync/journals/'$1.'txt' \
+#    '. | del(.journals[$key0])' \
+#    ~/.jrnl_config > "$tmp" && mv "$tmp" ~/.jrnl_config
+# rm ~/MEGAsync/journals/$1.txt
+
+#Using YQ and sponge for new Version of jrnl.sh
+yq -y --arg key0   $1 \
+   --arg value0 '/home/uriah/MEGAsync/journals/'$1.'txt' \
+   '.|del(.journals[$key0])' \
+   /home/uriah/.config/jrnl/jrnl.yaml | sponge /home/uriah/.config/jrnl/jrnl.yaml
+
+filename=/home/uriah/MEGAsync/journals/$1.txt
+if [ -f $filename ]
+then
+    mv $filename $filename.bak.$(date --iso-8601=seconds)
+fi

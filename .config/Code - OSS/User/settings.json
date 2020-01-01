@@ -1,0 +1,101 @@
+{
+    //window
+    "window.zoomLevel": 1,
+    // explorer
+    "explorer.openEditors.visible": 0,
+    // editor default
+    "editor.fontWeight": "normal",
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "Operator Mono Lig",
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.renderIndentGuides": false,
+    "editor.minimap.enabled": false,
+    "editor.detectIndentation": false,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": false,
+    "editor.mouseWheelZoom": true,
+    "editor.tabCompletion": "onlySnippets",
+    "editor.quickSuggestions": {
+        "strings": true
+    },
+    "editor.cursorSmoothCaretAnimation": true,
+    // workbench
+    "workbench.statusBar.visible": true,
+    "workbench.colorCustomizations": {
+        "tab.activeBorder": "#FF4081",
+        "list.inactiveSelectionForeground": "#FF4081",
+        "list.activeSelectionBackground": "#00a6a9",
+        "activityBarBadge.background": "#FF4081",
+        "list.activeSelectionForeground": "#FF4081",
+        "list.highlightForeground": "#FF4081",
+        "scrollbarSlider.activeBackground": "#FF408150",
+        "editorSuggestWidget.highlightForeground": "#FF4081",
+        "textLink.foreground": "#FF4081",
+        "progressBar.background": "#FF4081",
+        "pickerGroup.foreground": "#FF4081",
+        "notificationLink.foreground": "#FF4081",
+        "editorWidget.border": "#FF4081",
+        "statusBar.background": "#8FBCBB",
+        "statusBar.noFolderBackground": "#8FBCBB",
+        "statusBar.debuggingBackground": "#8FBCBB",
+        "statusBar.foreground": "#434C5E"
+    },
+    "workbench.colorTheme": "Night Owl",
+    "workbench.editor.showTabs": true,
+    "workbench.iconTheme": "vscode-icons",
+    //   "breadcrumbs.enabled": true,
+    // Exclude Vendor Folders During Search and Replace
+    "files.watcherExclude": {
+        "**/vendor/**": false,
+        "**/node_modules/**": true
+    },
+    "search.exclude": {
+        "**/vendor/**": false,
+        "**/node_modules/**": true
+    },
+    "search.useIgnoreFiles": false,
+    "terminal.integrated.fontWeight": "normal",
+    "files.eol": "\n",
+    // ADVANCE NEW FILE CONFIG
+    "advancedNewFile.exclude": {
+        "node_modules": true,
+        "node_modules_electron": true,
+        "bootstrap": true,
+        "storage": true,
+        "vendor": true,
+        "dev": true,
+        "dist": true
+    },
+    "advancedNewFile.showInformationMessages": true,
+    "advancedNewFile.convenienceOptions": [
+        "last",
+        "current",
+        "root"
+    ],
+    "createtmpfile.deleteOnExit": true,
+    // sync
+    // default sync api can be override in workspace
+    "sync.gist": "1338c1068ef5eabb715e1fe13373b121",
+    "sync.quietSync": false,
+    "sync.askGistName": false,
+    "sync.removeExtensions": true,
+    "sync.syncExtensions": true,
+    "sync.autoDownload": false,
+    "sync.autoUpload": false,
+    "sync.forceDownload": false,
+    //! general plugins here
+    "gitlens.advanced.messages": {
+        "suppressShowKeyBindingsNotice": true
+    },
+    "sync.forceUpload": false,
+    "[php]": {
+        "editor.defaultFormatter": "kokororin.vscode-phpfmt"
+    },
+    "editor.fontSize": 15,
+    "terminal.integrated.fontSize": 13,
+    "bookmarks.navigateThroughAllFiles": true,
+    "bookmarks.saveBookmarksInProject": true,
+    "terminal.integrated.fontFamily": "Hack Nerd Font Mono"
+}

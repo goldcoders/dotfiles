@@ -1,0 +1,9 @@
+#!/bin/sh
+if sudo rfkill -ro Soft list bluetooth | grep -q "^blocked"
+then
+  sudo rfkill unblock bluetooth
+  notify-send "Bluetooth ON"
+else
+  sudo rfkill block bluetooth
+  notify-send "Bluetooth OFF"
+fi

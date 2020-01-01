@@ -1,0 +1,296 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+    {
+        "key": "ctrl+f11",
+        "command": "workbench.action.toggleZenMode"
+    },
+    {
+        "key": "ctrl+k z",
+        "command": "-workbench.action.toggleZenMode"
+    },
+    {
+        "key": "shift+meta+b",
+        "command": "bookmarks.listFromAllFiles"
+    },
+    {
+        "key": "ctrl+alt+k",
+        "command": "-bookmarks.toggle",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "meta+b",
+        "command": "bookmarks.toggle"
+    },
+    {
+        "key": "shift+alt+l",
+        "command": "-bookmarks.expandSelectionToNext",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+j",
+        "command": "-bookmarks.expandSelectionToPrevious",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+k",
+        "command": "-bookmarks.shrinkSelection",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+alt+l",
+        "command": "-bookmarks.jumpToNext",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+alt+j",
+        "command": "-bookmarks.jumpToPrevious",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+numpad3 ctrl+numpad1",
+        "command": "-artisan.cache.clear"
+    },
+    {
+        "key": "ctrl+numpad5 ctrl+numpad1",
+        "command": "-artisan.config.cache"
+    },
+    {
+        "key": "ctrl+numpad3 ctrl+numpad2",
+        "command": "-artisan.cache.table"
+    },
+    {
+        "key": "ctrl+numpad5 ctrl+numpad2",
+        "command": "-artisan.config.clear"
+    },
+    {
+        "key": "ctrl+numpad4 ctrl+numpad3",
+        "command": "-artisan.route.refresh"
+    },
+    {
+        "key": "ctrl+numpad5 ctrl+numpad3",
+        "command": "-artisan.config.refresh"
+    },
+    {
+        "key": "ctrl+numpad1 ctrl+numpad1",
+        "command": "-artisan.make.command"
+    },
+    {
+        "key": "ctrl+numpad1 ctrl+numpad2",
+        "command": "-artisan.make.controller"
+    },
+    {
+        "key": "ctrl+numpad1 ctrl+numpad3",
+        "command": "-artisan.make.event"
+    },
+    {
+        "key": "ctrl+numpad1 ctrl+numpad4",
+        "command": "-artisan.make.job"
+    },
+    {
+        "key": "ctrl+numpad1 ctrl+numpad4",
+        "command": "-artisan.make.job"
+    },
+    {
+        "key": "ctrl+numpad1 ctrl+numpad4",
+        "command": "-artisan.make.job"
+    },
+    {
+        "key": "ctrl+numpad1 ctrl+numpad4",
+        "command": "-artisan.make.job"
+    },
+    {
+        "key": "ctrl+numpad1 ctrl+numpad4",
+        "command": "-artisan.make.job"
+    },
+    {
+        "key": "ctrl+numpad1 ctrl+numpad4",
+        "command": "-artisan.make.job"
+    },
+    {
+        "key": "ctrl+numpad1 ctrl+numpad5",
+        "command": "-artisan.make.listener"
+    },
+    {
+        "key": "ctrl+numpad1 ctrl+numpad5",
+        "command": "-artisan.make.listener"
+    },
+    {
+        "key": "ctrl+numpad1 ctrl+numpad5",
+        "command": "-artisan.make.listener"
+    },
+    {
+        "key": "ctrl+numpad1 ctrl+numpad5",
+        "command": "-artisan.make.listener"
+    },
+    {
+        "key": "ctrl+numpad1 ctrl+numpad6",
+        "command": "-artisan.make.mail"
+    },
+    {
+        "key": "ctrl+numpad1 ctrl+numpad7",
+        "command": "-artisan.make.middleware"
+    },
+    {
+        "key": "ctrl+numpad1 ctrl+numpad8",
+        "command": "-artisan.make.migration"
+    },
+    {
+        "key": "ctrl+numpad1 ctrl+numpad8",
+        "command": "-artisan.make.migration"
+    },
+    {
+        "key": "ctrl+numpad1 ctrl+numpad9",
+        "command": "-artisan.make.model"
+    },
+    {
+        "key": "ctrl+numpad1 ctrl+numpad0",
+        "command": "-artisan.make.notification"
+    },
+    {
+        "key": "ctrl+numpad1 ctrl+numpad0",
+        "command": "-artisan.make.notification"
+    },
+    {
+        "key": "ctrl+numpad1 ctrl+numpad0",
+        "command": "-artisan.make.notification"
+    },
+    {
+        "key": "ctrl+numpad1 ctrl+numpad0",
+        "command": "-artisan.make.notification"
+    },
+    {
+        "key": "ctrl+numpad1 ctrl+numpad_divide",
+        "command": "-artisan.make.policy"
+    },
+    {
+        "key": "ctrl+numpad1 ctrl+numpad_multiply",
+        "command": "-artisan.make.provider"
+    },
+    {
+        "key": "ctrl+numpad1 ctrl+numpad_subtract",
+        "command": "-artisan.make.request"
+    },
+    {
+        "key": "ctrl+numpad1 ctrl+numpad_subtract",
+        "command": "-artisan.make.request"
+    },
+    {
+        "key": "ctrl+numpad1 ctrl+numpad_subtract",
+        "command": "-artisan.make.request"
+    },
+    {
+        "key": "ctrl+numpad1 ctrl+numpad_add",
+        "command": "-artisan.make.seeder"
+    },
+    {
+        "key": "ctrl+numpad1 ctrl+numpad_add",
+        "command": "-artisan.make.seeder"
+    },
+    {
+        "key": "ctrl+numpad1 ctrl+numpad_add",
+        "command": "-artisan.make.seeder"
+    },
+    {
+        "key": "ctrl+numpad2 ctrl+numpad1",
+        "command": "-artisan.migrate"
+    },
+    {
+        "key": "ctrl+numpad2 ctrl+numpad7",
+        "command": "-artisan.migrate.fresh"
+    },
+    {
+        "key": "ctrl+numpad2 ctrl+numpad7",
+        "command": "-artisan.migrate.fresh"
+    },
+    {
+        "key": "ctrl+numpad2 ctrl+numpad2",
+        "command": "-artisan.migrate.install"
+    },
+    {
+        "key": "ctrl+numpad2 ctrl+numpad3",
+        "command": "-artisan.migrate.refresh"
+    },
+    {
+        "key": "ctrl+numpad2 ctrl+numpad4",
+        "command": "-artisan.migrate.reset"
+    },
+    {
+        "key": "ctrl+numpad2 ctrl+numpad5",
+        "command": "-artisan.migrate.rollback"
+    },
+    {
+        "key": "ctrl+numpad2 ctrl+numpad6",
+        "command": "-artisan.migrate.status"
+    },
+    {
+        "key": "ctrl+numpad4 ctrl+numpad1",
+        "command": "-artisan.route.cache"
+    },
+    {
+        "key": "ctrl+numpad4 ctrl+numpad2",
+        "command": "-artisan.route.clear"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "-workbench.action.openRecent"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "workbench.action.gotoSymbol"
+    },
+    {
+        "key": "ctrl+shift+o",
+        "command": "-workbench.action.gotoSymbol"
+    },
+    {
+        "key": "ctrl+o",
+        "command": "-workbench.action.files.openFile"
+    },
+    {
+        "key": "ctrl+o",
+        "command": "workbench.action.showAllSymbols"
+    },
+    {
+        "key": "ctrl+t",
+        "command": "-workbench.action.showAllSymbols"
+    },
+    {
+        "key": "meta+t meta+s",
+        "command": "-phpunit.run-all"
+    },
+    {
+        "key": "meta+t meta+f",
+        "command": "-phpunit.run-file",
+        "when": "editorLangId = php && editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+t",
+        "command": "-workbench.action.reopenClosedEditor"
+    },
+    {
+        "key": "meta+t meta+t",
+        "command": "-phpunit.run-test-at-cursor",
+        "when": "editorLangId = php && editorTextFocus"
+    },
+    {
+        "key": "meta+t meta+d",
+        "command": "-phpunit.run-directory",
+        "when": "editorLangId = php && editorTextFocus"
+    },
+    {
+        "key": "alt+t",
+        "command": "phpunit.run-all"
+    },
+    {
+        "key": "alt+t",
+        "command": "test-explorer.run-test-at-cursor"
+    },
+    {
+        "key": "ctrl+shift+t",
+        "command": "test-explorer.run-all"
+    },
+    {
+        "key": "ctrl+t",
+        "command": "test-explorer.run-file"
+    }
+]

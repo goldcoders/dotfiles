@@ -1,0 +1,225 @@
+# Basic binds
+# Open Terminal
+super + Return
+	$TERMINAL
+# D Menu Launcher
+super + shift + Return
+	dmenu_run -fn "HackNerdFontMono-17" -sb "#FE80AB"
+super + shift + q
+	kill -9 `xdotool getwindowfocus getwindowpid`
+# File Manager Launcher
+super + r
+	$TERMINAL -e ranger
+super + shift + r
+	pamac-manager
+# Music Player
+super + m
+	$TERMINAL -e ncmpcpp
+# Mute
+super + shift + m
+	lmc mute
+# RSS
+super + n
+	$TERMINAL -e newsboat
+# Calendar
+super + y
+	$TERMINAL -e calcurse
+# Audio Control
+super + a
+	pavucontrol
+super + shift + a
+	$TERMINAL -e pulsemixer; pkill -RTMIN+10 i3blocks
+# Calculator
+super + c
+	toggle_calculator
+# Camera
+super + shift + c
+	toggle_webcam
+# Wireless Center
+super + w
+	$TERMINAL -e sudo -A nmtui
+super + shift + w
+    	toggle_bluetooth
+super + e
+	code
+# Browser
+super + g
+	brave
+super + shift + g
+	brave --incognito
+# File Manager
+super + o
+	nemo
+# Unicode
+super + u
+	dmenuunicode
+# Go to Link
+super + i
+	cabl
+# Wiki
+super + v
+	$TERMINAL -e nvim -c "VimwikiIndex"
+super + shift + v
+	com.github.davidmhewitt.clipped
+# Dropdown terminal
+super + grave
+	ddspawn tmuxdd
+# Clipboard Manager
+super + Insert
+	showclip
+# Delete Clipboard Manager
+super + Delete
+	xsel -c && xsel -bc
+# Session Controller
+super + shift + x
+	prompt "Shutdown computer?" "sudo -A shutdown -h now"
+super + shift + BackSpace
+	prompt "Reboot computer?" "sudo -A shutdown -r now"
+super + shift + backslash
+	prompt 'Hibernate computer?' 'sudo -A zzz -Z'
+super + x
+	ifinstalled slock && ( slock & xset dpms force off ; mpc pause ; pauseallmpv )
+super + BackSpace
+	prompt "Do You Wanna Log Out?" "i3-msg exit"
+
+# Spotify Controller
+super + backslash
+	playerctl play-pause
+super + bracketleft
+	playerctl previous
+super + bracketright
+	playerctl next
+super + shift + bracketleft
+	lmc down 10
+super + shift + bracketright
+	lmc up 10
+
+# Recording
+# Take screenshot
+Print
+	maim pic-full-$(date '+%y%m%d-%H%M-%S').png
+# Pick screenshot type
+shift + @Print
+	maimpick
+# Record audio or video
+super + Print
+	dmenurecord
+super + shift + Print
+	dmenurecord kill
+
+# NMCPCC controll center
+super + slash
+	mpc toggle
+super + shift + slash
+	mpc stop
+# Changes to next/previous tracks
+super + @{comma,period}
+	lmc {prev,next}
+# Restart track
+super + shift + less
+	lmc back 10
+super + shift + greater
+	lmc forward 10
+
+# Rofi Custom Key bindings
+# Show Journal
+super + {equal,plus}
+	{addjournal,$TERMINAL -e showjrnl}
+# ROFI SSH
+super {_,shift +} + minus
+	{rofi -show ssh,rofi-ssh}
+super + shift + e
+	dmenu_edit
+# Password Manager
+super + shift + space
+	rofi-pass
+# Huawei F8 (Super + p)
+super + {_,shift +} p
+	{rofi -show drun,killall matebook-applet || matebook-applet}
+
+
+# Function keys
+# Seach Duck duck go
+super + F1
+	ducksearch
+# Pick Color
+super + @F2
+ pickcolor
+super + F3
+	killall redshift-gtk || redshift-gtk
+# Hibernate
+super + F4
+	toggle_music
+super + F5
+	i3 restart
+
+#	sudo -A systemctl restart NetworkManager
+# Start torrent daemon/open interface
+#super + F6
+#	torwrap
+# toggle torrent daemon
+#super + F7
+#td-togggle
+# select monitor
+super + F8
+	displayselect
+# Mount a USB drive or Android device
+#super + F9
+# Unmount a USB drive or Android device
+super + F10
+	toggle_screenkey
+super + F11
+	dmenumount
+# Network Manager interface
+super + F12
+	dmenuumount
+
+# Function Keys
+# BrightnessDown
+XF86MonBrightnessDown
+	sudo brightnessctl s 5%-
+# BrightnessUp
+XF86MonBrightnessUp
+	sudo brightnessctl s +5%
+# Mute
+XF86AudioMute
+	lmc mute
+# LowerVolume
+XF86AudioLowerVolume
+	lmc down 5
+# HigherVolume
+XF86AudioRaiseVolume
+	lmc up 5
+# Used by Galaxy EarBuds
+XF86Audio{Next,Prev}
+	mpc {next,prev}
+XF86Audio{Pause,Play,Stop}
+	mpc {pause,play,stop}
+XF86Audio{Rewind,Forward}
+	mpc seek {-,+}10
+# End Used By Galaxy EarBuds
+
+# Arrow Keys Bindings (POMODORO)
+super + Left
+	i3-gnome-pomodoro toggle
+super + Down
+	getpomodorostatus
+super + Up
+	killall gnome-pomodoro || gnome-pomodoro --no-default-window
+super + Right
+	i3-gnome-pomodoro start
+
+
+# Lock Touchpad
+super + t
+	toggle_touchpad
+super + shift + t
+	crontog
+
+# CONTROL + ALT KEYBINDINGS
+ctrl + alt + z
+	zeal
+ctrl + alt + d
+	discord
+ctrl + alt + f
+	firefox

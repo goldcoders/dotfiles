@@ -1,0 +1,5 @@
+#!/bin/sh
+FILE=$1
+FILENAME=${FILE%.*}
+mysql -u$DBUSER -p$DBPASS $FILENAME < $FILE
+

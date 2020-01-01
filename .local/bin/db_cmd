@@ -1,0 +1,8 @@
+#!/bin/sh
+cwd=$(pwd)
+
+cd ~/.local/bin
+ls db_* | grep -v 'db_cmd'
+cd $cwd
+
+

@@ -1,0 +1,8 @@
+{
+    "require": {
+        "cpriego/valet-linux": "^2.2",
+        "laravel/installer": "^3.0",
+        "laravel/lumen-installer": "^1.1",
+        "laravel-zero/installer": "^2.3"
+    }
+}

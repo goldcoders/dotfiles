@@ -1,0 +1,20 @@
+#!/bin/sh
+# uses rofi ssh to generate config
+# read this https://stackoverflow.com/questions/3225862/multiple-github-accounts-ssh-config#17158985
+cwd=$(pwd)
+sshdir=~/.ssh
+echo "Set A Comment to your ssh key"
+read -r comment
+if [ -f "$comment" ] ; then
+    echo "Opps You didnt specify A Comment"
+    return;
+fi
+
+echo "Set An id to your ssh key"
+read -r name
+if [ -f "$name" ] ; then
+    echo "Opps You didnt specify An ID"
+    return;
+fi
+cd $sshdir && ssh-keygen -t rsa -b 4096 -C "${comment}" -f "id_$name" && cd "$cwd" || exit
+

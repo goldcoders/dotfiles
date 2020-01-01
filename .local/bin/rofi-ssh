@@ -1,0 +1,51 @@
+#!/bin/bash
+
+type=$(echo "git
+server" | rofi -dmenu -p "Create SSH Config For: ")
+    if [ "$type" == "git" ]; then
+        domain=$(echo "github.com
+gitlab.com
+bitbucket.com
+gitkraken.com" | rofi -dmenu -p "Set Domain Name: ")
+[[ -z $domain ]] && exit
+
+username=$(rofi -dmenu -p "Set Username: ")
+[[ -z $username ]] && exit
+ssh_id=$(rofi -dmenu -p "Set SSH ID: ")
+[[ -z $ssh_id ]] && exit
+cd ~/.ssh
+echo -e "\nHost $username.$domain
+\tHostName $domain
+\tPreferredAuthentications publickey
+\tIdentityFile ~/.ssh/id_$ssh_id" >> config
+note "New Git SSH Has Been Added"
+
+eval `ssh-agent -s`
+ssh-add ~/.ssh/id_$ssh_id
+    elif [ "$type" == "server" ]
+    then
+        ssh_alias=$(rofi -dmenu -p "Set SSH Alias: ")
+[[ -z $ssh_alias ]] && exit
+
+ipaddress=$(rofi -dmenu -p "Set IP Address: ")
+[[ -z $ipaddress ]] && exit
+
+username=$(rofi -dmenu -p "Set Username: ")
+[[ -z $username ]] && exit
+
+ssh_id=$(rofi -dmenu -p "Set SSH ID: ")
+[[ -z $ssh_id ]] && exit
+
+cd ~/.ssh
+echo -e "\nHost $ssh_alias
+\tHostname $ipaddress
+\tUser $username
+\tPort 22
+\tIdentitiesOnly yes
+\tIdentityFile ~/.ssh/id_$ssh_id" >> config
+note "New SSH Key For $username@$ipaddress Has Been Added!"
+
+eval `ssh-agent -s`
+ssh-add ~/.ssh/id_$ssh_id
+fi
+

@@ -1,0 +1,11 @@
+#!/bin/sh
+echo "kitkat(4.4) - api 19
+lollipop(5.0) - api 21
+lollipop(5.1) - api 22
+marshmallow(6.0) - api 23
+nougat(7.0) - api 24
+nougat(7.1) - api 25
+oreo(8.0) - api 26
+oreo(8.1) - api 27
+pie(9.0) - api 28
+q(10.0) - api 29"

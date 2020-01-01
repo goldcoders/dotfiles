@@ -1,0 +1,10 @@
+#!/bin/sh
+status=""
+if sudo rfkill -ro Soft list wlan | grep -q "^blocked"
+then
+  sudo rfkill unblock wlan
+  notify-send "Wifi ON"
+else
+  sudo rfkill block wlan
+  notify-send "Wifi-Off"
+fi

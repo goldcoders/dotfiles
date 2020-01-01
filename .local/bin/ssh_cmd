@@ -1,0 +1,7 @@
+#!/bin/sh
+cwd=$(pwd)
+
+cd /home/uriah/.local/bin
+ls ssh_* | grep -v 'ssh_cmd'
+echo "rofi-ssh"
+cd $cwd

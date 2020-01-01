@@ -1,0 +1,2 @@
+#!/bin/sh
+jrnl -ls | awk 'FNR == 1 {next} {print $2}' | dmenu -sb "#FE80AB" -i -p "View Journal From?" -fn "HackNerdFontMono-17" | xargs -r -I {} sh -c "jrnl {} -a | less -"

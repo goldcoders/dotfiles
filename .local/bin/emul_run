@@ -1,0 +1,5 @@
+#!/bin/sh
+# Feed this script a link and it will give dmenu
+# some choice programs to use to open it.
+
+emulator -list-avds | dmenu -sb "#e34343" -fn "Hack-18" -i -p "Please Choose A Device:" | xargs -r emulator -avd

@@ -1,0 +1,25 @@
+#!/bin/sh
+# tmp=$(mktemp)
+# SET A NEW JOURNAL ENTRY
+# WORKS WITH OLD VERSION
+# jq --arg key0   $1 \
+#    --arg value0 '~/MEGAsync/journals/'$1.'txt' \
+#    '. | .journals[$key0].journal=$value0 | .journals[$key0].encrypt=false' \
+#    ~/.jrnl_config > "$tmp" && mv "$tmp" ~/.jrnl_config
+
+# touch ~/MEGAsync/journals/$1.txt
+
+# USING YQ --
+# sudo pacman -S yq
+# Uses almost same syntax as jq
+# https://github.com/kislyuk/yq
+yq -y --arg key0   $1 \
+   --arg value0 '/home/uriah/MEGAsync/journals/'$1.'txt' \
+   '. | .journals[$key0].journal=$value0 | .journals[$key0].encrypt=false' \
+   /home/uriah/.config/jrnl/jrnl.yaml | sponge /home/uriah/.config/jrnl/jrnl.yaml
+
+filename=/home/uriah/MEGAsync/journals/$1.txt
+if [ ! -f $filename ]
+then
+    touch $filename
+fi

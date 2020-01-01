@@ -1,0 +1,3 @@
+#!/bin/sh
+
+kill $(pidof com.github.ronnydo.colorpicker) || com.github.ronnydo.colorpicker

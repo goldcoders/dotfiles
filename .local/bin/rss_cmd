@@ -1,0 +1,6 @@
+#!/bin/sh
+cwd=$(pwd)
+
+cd /home/uriah/.local/bin
+ls rss_* | grep -v 'rss_cmd'
+cd $cwd

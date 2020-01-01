@@ -1,0 +1,7 @@
+#!/bin/sh
+dbname=$1
+mysqldump -u$DBUSER -p$DBPASS $dbname > $dbname.
+
+sql
+
+

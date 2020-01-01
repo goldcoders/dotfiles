@@ -1,0 +1,3 @@
+#!/bin/sh
+jrnl -ls | awk 'FNR == 1 {next} {print $2}' | dmenu -sb "#FE80AB" -i -p "Add Journal To:" -fn "HackNerdFontMono-17" | xargs -r st -e jrnl
+

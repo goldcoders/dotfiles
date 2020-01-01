@@ -1,0 +1,14 @@
+#!/bin/bash
+# Make sure to run install_system_images.sh
+# set device name
+VVNAME=$(androids | rofi -show -dmenu -p "Select Android Version" | awk '{print $4}')
+NAME=$(rofi -show -dmenu -p "Name your Of Your Emulator")
+# get device id
+DEVICE=$(avdmanager list | grep id: | rofi -show -dmenu -p "Choose Device")
+DEVID=`echo "$DEVICE" | awk -F'[or ]' '{print $2}'`
+# get system image
+#SYSTEM_PATH=$(cat ~/.local/bin/system-images.txt | rofi -show -dmenu -p "Choose Image")
+SYSTEM_PATH=$(grep $VVNAME ~/.local/bin/system-images.txt)
+## create new emulator device
+
+avdmanager create avd -d "$DEVID" -n "$NAME" -k "$SYSTEM_PATH"

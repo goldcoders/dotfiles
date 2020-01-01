@@ -1,0 +1,89 @@
+#!/bin/sh
+
+# Use neovim for vim if present.
+command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
+
+# Verbosity and settings that you pretty much just always are going to want.
+alias \
+	bat="cat /sys/class/power_supply/BAT?/capacity" \
+	cp="cp -iv" \
+	mv="mv -iv" \
+	rm="rm -v" \
+	mkd="mkdir -pv" \
+	yt="youtube-dl --add-metadata -i" \
+	yta="yt -x -f bestaudio/best --audio-format mp3" \
+	ffmpeg="ffmpeg -hide_banner" \
+	SS="sudo systemctl" \
+	sv="sudo nvim" \
+	pbcopy="xclip -sel clip" \
+	cppwd="pwd | xclip -sel clip" \
+	nah="git reset --hard;git clean -df" \
+	wip="git add . && git commit -m 'wip'" \
+	hs="history | grep" \
+	clearhs="history -c" \
+	envpath="echo -e ${PATH//:/\\n}" \
+	tinker="php artisan tinker" \
+	fresh="php artisan migrate:fresh --seed" \
+	art="php artisan" \
+	t="vendor/bin/phpunit" \
+	chax="sudo chmod a+x" \
+	chx="chmod +x" \
+	000="sudo chmod 000" \
+	644="sudo chmod 644" \
+	600="sudo chmod 600" \
+	755="sudo chmod 755" \
+	777="sudo chmod 777" \
+	ownthis="sudo chown -R $(whoami)" \
+	roothis="sudo chown -R root" \
+	perm="stat --printf '%a %n \n'" \
+	gs="git status" \
+	dot="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME" \
+	j="jrnl" \
+	x="sxiv -ft *" \
+
+# Colorize commands when possible.
+alias \
+	..="cd .." \
+	...="cd ../.." \
+	....="cd ../../.." \
+	.....="cd ../../../.." \
+	......="cd ../../../.." \
+	c="clear" \
+	ls="exa --color=always --group-directories-first" \
+	l="exa -l --color=always --group-directories-first" \
+	la="exa -a --color=always --group-directories-first" \
+	ll="exa -al --color=always --group-directories-first" \
+	lt="exa -aT --color=always --group-directories-first" \
+	lr="exa -lR --color=always --group-directories-first" \
+	grep="grep --color=auto" \
+	diff="diff --color=auto" \
+	ccat="highlight --out-format=ansi" \
+
+# These common commands are just too long! Abbreviate them.
+alias \
+	ka="killall" \
+	g="git" \
+	trem="transmission-remote" \
+	YT="youtube-viewer" \
+	sdn="sudo shutdown -h now" \
+	r="$FILE" \
+	e="xdg-open" \
+	v="$EDITOR" \
+	p="sudo pacman" \
+	nn="sudo system76-power graphics nvidia" \
+	hh="sudo system76-power graphics hybrid" \
+	ii="sudo system76-power graphics intel" \
+	bb="sudo system76-power profile battery" \
+	pp="sudo system76-power profile performance" \
+	mm="sudo system76-power profile balanced"
+
+
+# This alias is important. It enables the `pauseallmpv` command.
+alias mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)"
+
+# Some other stuff
+alias \
+	magit="nvim -c MagitOnly" \
+	ref="shortcuts >/dev/null; source ~/.config/shortcutrc" \
+	refgpg="gpg-connect-agent RELOADAGENT /bye" \
+	weath="less -S ~/.local/share/weatherreport" \
