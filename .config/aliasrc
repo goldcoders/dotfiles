@@ -37,6 +37,7 @@ alias \
 	roothis="sudo chown -R root" \
 	perm="stat --printf '%a %n \n'" \
 	gs="git status" \
+	ghs="git log --all --decorate --oneline --graph" \
 	dot="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME" \
 	j="jrnl" \
 	x="sxiv -ft *" \

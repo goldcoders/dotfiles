@@ -97,5 +97,8 @@
     "terminal.integrated.fontSize": 13,
     "bookmarks.navigateThroughAllFiles": true,
     "bookmarks.saveBookmarksInProject": true,
-    "terminal.integrated.fontFamily": "Hack Nerd Font Mono"
+    "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
+    "[vue]": {
+        "editor.defaultFormatter": "octref.vetur"
+    }
 }

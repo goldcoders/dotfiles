@@ -45,6 +45,10 @@ for_window [title="mpvfloat"] border pixel 0
 no_focus [title="mpvfloat"]
 # Specific Workspace
 for_window [class="Spotify"] move workspace $ws10
+# KDE CONNECT SMS
+for_window [title="Compose SMS"] floating enable
+for_window [title="SMS Instant Messaging"] floating enable
+
 
 
 # #---Dropdown Windows---# #
@@ -207,7 +211,7 @@ bindsym Control+Mod1+Delete	exec --no-startup-id lmc truemute ; exec --no-startu
 bindsym XF86Tools exec --no-startup-id toggle_keyboard
 bindsym XF86AudioMicMute exec --no-startup-id amixer set Capture toggle && amixer get Capture | grep '\[off\]' && notify-send "MIC switched OFF" || notify-send "MIC switched ON"
 
-#exec --no-startup-id /usr/lib/kdeconnectd
+exec --no-startup-id /usr/lib/kdeconnectd
 #exec --no-startup-id /usr/bin/kdeconnect-indicator
 #exec --no-startup-id /usr/bin/indicator-kdeconnect
- exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1

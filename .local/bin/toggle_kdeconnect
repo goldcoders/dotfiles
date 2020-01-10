@@ -1,3 +1,15 @@
 #!/bin/sh
 
-killall kdeconnectd  || /usr/lib/kdeconnectd
+## check if we have kdeconnect daemon running
+## if we have then we disabled
+## if none we need to run
+## show a notification
+
+if pgrep -x "kdeconnectd" > /dev/null
+then
+    notify-send 'KDEConnect Daemon Stopped!' -i /usr/share/icons/hicolor/scalable/status/smartphonedisconnected.svg
+    killall kdeconnectd
+else
+    notify-send 'KDEConnect Daemon Running!' -i /usr/share/icons/hicolor/scalable/status/smartphoneconnected.svg
+    /usr/lib/kdeconnectd >/dev/null 2>&1
+fi
