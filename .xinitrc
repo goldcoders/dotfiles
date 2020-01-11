@@ -1,5 +1,8 @@
 #!/usr/bin/env sh
 
+# Fix Gnome Apps Slow  Start due to failing services
+# Add this when you include flatpak in your system
+dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
 # xinitrc runs automatically when you run startx.
 
 # There are some small but important commands that need to be run when we start
@@ -12,7 +15,6 @@
 
 # Your default LARBS WM is determined in your `~/.profile` on login.  Here we
 # run the proper command to run when the graphical environment starts.
-
 case "$LARBSWM" in
 	dwm) while :; do
 		ssh-agent dwm || break
@@ -20,3 +22,4 @@ case "$LARBSWM" in
 	i3) exec i3 ;;
 	*) echo "No valid LARBS window manager detected." ;;
 esac
+
