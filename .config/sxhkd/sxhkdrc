@@ -191,7 +191,7 @@ XF86Audio{Rewind,Forward}
 super + Left
 	i3-gnome-pomodoro toggle
 super + Down
-	getpomodorostatus
+	i3-gnome-pomodoro stop
 super + Up
 	killall gnome-pomodoro || gnome-pomodoro --no-default-window
 super + Right

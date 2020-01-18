@@ -54,7 +54,7 @@ alias \
 	l="exa -l --color=always --group-directories-first" \
 	la="exa -a --color=always --group-directories-first" \
 	ll="exa -al --color=always --group-directories-first" \
-	lt="exa -aT --color=always --group-directories-first" \
+	ltr="exa -aT --color=always --group-directories-first" \
 	lr="exa -lR --color=always --group-directories-first" \
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
@@ -76,7 +76,8 @@ alias \
 	ii="sudo system76-power graphics intel" \
 	bb="sudo system76-power profile battery" \
 	pp="sudo system76-power profile performance" \
-	mm="sudo system76-power profile balanced"
+	mm="sudo system76-power profile balanced" \
+	dl="lynda-dl -u 2520904 -p secret1234 -o houstonlibrary.org" \
 
 
 # This alias is important. It enables the `pauseallmpv` command.

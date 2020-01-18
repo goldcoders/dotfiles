@@ -2,10 +2,10 @@ command=~/.local/bin/statusbar/$BLOCK_NAME
 separator_block_width=15
 markup=pango
 
-#[i3-gnome-pomodoro]
-#command=i3-gnome-pomodoro status | sed -e 's/[^ ]*Pomodoro[^ ]*//ig'
-#interval=1
-#label=⏰
+[i3-gnome-pomodoro]
+command=i3-gnome-pomodoro status | sed -e 's/[^ ]*Pomodoro[^ ]*//ig'
+interval=1
+label=⏰
 
 [record]
 command=cat /tmp/recordingicon

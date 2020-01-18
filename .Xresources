@@ -1,0 +1,45 @@
+! Copyright (c) 2020-present Goldcoders <goldcodersclub@gmail.com>
+! Project:    Goldcoders XResources
+! Version:    0.1.0
+! Repository: https://github.com/goldcoders/xresources
+! License:    MIT
+
+#define goldcoders0 #2C3E50
+#define goldcoders1 #3B4252
+#define goldcoders2 #434C5E
+#define goldcoders3 #4C566A
+#define goldcoders4 #FE80AB
+#define goldcoders5 #E5E9F0
+#define goldcoders6 #ECEFF4
+#define goldcoders7 #8FBCBB
+#define goldcoders8 #1793D1
+#define goldcoders9 #81A1C1
+#define goldcoders10 #5E81AC
+#define goldcoders11 #BF616A
+#define goldcoders12 #D08770
+#define goldcoders13 #EBCB8B
+#define goldcoders14 #A3BE8C
+#define goldcoders15 #AF88C2
+
+*.foreground:   goldcoders4
+*.background:   goldcoders0
+*.cursorColor:  goldcoders4
+*fading: 35
+*fadeColor: goldcoders3
+
+*.color0: goldcoders1
+*.color1: goldcoders11
+*.color2: goldcoders14
+*.color3: goldcoders13
+*.color4: goldcoders9
+*.color5: goldcoders15
+*.color6: goldcoders8
+*.color7: goldcoders5
+*.color8: goldcoders3
+*.color9: goldcoders11
+*.color10: goldcoders14
+*.color11: goldcoders13
+*.color12: goldcoders9
+*.color13: goldcoders15
+*.color14: goldcoders7
+*.color15: goldcoders6

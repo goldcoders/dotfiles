@@ -1,6 +1,6 @@
 {
     //window
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 2,
     // explorer
     "explorer.openEditors.visible": 0,
     // editor default
