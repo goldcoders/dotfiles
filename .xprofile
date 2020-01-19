@@ -17,6 +17,7 @@ pamac-tray &
 matebook-applet &
 gnome-pomodoro --no-default-window &
 compton >/dev/null 2>&1 & # xcompmgr for transparency
+xrdb ~/.Xresources
 
 if system76-power graphics | grep -q 'nvidia'; then
   xrandr --setprovideroutputsource modesetting NVIDIA-0
