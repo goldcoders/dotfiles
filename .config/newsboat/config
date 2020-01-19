@@ -25,14 +25,14 @@ bind-key x pb-delete
 color background         default   default
 color listnormal         default   default
 color listnormal_unread  default   default
-color listfocus          black     yellow
-color listfocus_unread   black     yellow
-color info               black     blue
+color listfocus          black     red
+color listfocus_unread   white     red
+color info               black     magenta
 color article            default   default
 
 # highlights
 highlight article "^(Title):.*$" blue default
-highlight article "https?://[^ ]+" red default
+highlight article "https?://[^ ]+" cyan default
 highlight article "\\[image\\ [0-9]+\\]" green default
 
 
