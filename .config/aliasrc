@@ -61,6 +61,10 @@ alias \
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
 	ccat="highlight --out-format=ansi" \
+	ds="dot status" \
+	da="dot add" \
+	dif="dot diff" \
+	dc="dot commit -m" \
 
 # These common commands are just too long! Abbreviate them.
 alias \

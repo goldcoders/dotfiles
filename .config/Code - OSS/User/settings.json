@@ -1,6 +1,6 @@
 {
     //window
-    "window.zoomLevel": 2,
+    "window.zoomLevel": 1,
     // explorer
     "explorer.openEditors.visible": 0,
     // editor default
@@ -13,7 +13,6 @@
     "editor.minimap.enabled": false,
     "editor.detectIndentation": false,
     "editor.formatOnPaste": true,
-    "editor.formatOnSave": true,
     "editor.formatOnType": false,
     "editor.mouseWheelZoom": true,
     "editor.tabCompletion": "onlySnippets",
@@ -99,6 +98,10 @@
     "bookmarks.saveBookmarksInProject": true,
     "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
     "[vue]": {
-        "editor.defaultFormatter": "octref.vetur"
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownBeingEdited": false,
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
     }
 }
