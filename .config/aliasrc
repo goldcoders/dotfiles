@@ -26,6 +26,8 @@ alias \
 	fresh="php artisan migrate:fresh --seed" \
 	art="php artisan" \
 	t="vendor/bin/phpunit" \
+	tt="php artisan test" \
+	ttt="vendor/bin/phpstan analyse" \
 	chax="sudo chmod a+x" \
 	chx="chmod +x" \
 	000="sudo chmod 000" \
