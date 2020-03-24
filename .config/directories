@@ -11,3 +11,5 @@ mn	/mnt
 wd 	/mnt/media/wd
 www     ~/www
 z   ~/www
+zz  ~/html
+fl  ~/Flutter
