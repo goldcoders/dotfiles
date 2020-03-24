@@ -5,7 +5,7 @@
 # Must have xclip installed to even show menu.
 xclip -h >/dev/null || exit
 
-chosen=$(grep -v "#" ~/.local/share/larbs/emoji | dmenu -i -l 20 -sb "#FE80AB" -fn HackNerdFontMono-17)
+chosen=$(grep -v "#" ~/.local/share/larbs/emoji | dmenu -i -l 20 -sb "#FE80AB" -fn HackNerdFontMono-18)
 
 [ "$chosen" != "" ] || exit
 
