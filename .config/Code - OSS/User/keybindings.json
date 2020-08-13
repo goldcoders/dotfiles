@@ -9,7 +9,7 @@
         "command": "-workbench.action.toggleZenMode"
     },
     {
-        "key": "shift+meta+b",
+        "key": "ctrl+shift+alt+b",
         "command": "bookmarks.listFromAllFiles"
     },
     {
@@ -18,7 +18,7 @@
         "when": "editorTextFocus"
     },
     {
-        "key": "meta+b",
+        "key": "ctrl+alt+b",
         "command": "bookmarks.toggle"
     },
     {
@@ -292,5 +292,14 @@
     {
         "key": "ctrl+t",
         "command": "test-explorer.run-file"
+    },
+    {
+        "key": "ctrl+shift+escape",
+        "command": "workbench.action.toggleMaximizedPanel"
+    },
+    {
+        "key": "shift+enter",
+        "command": "extension.jumpy-word",
+        "when": "editorTextFocus"
     }
 ]
