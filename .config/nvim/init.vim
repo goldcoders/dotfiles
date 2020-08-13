@@ -10,26 +10,31 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 Plug 'tpope/vim-surround'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-Plug 'airblade/vim-gitgutter'
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-vinegar'
+"Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/goyo.vim'
-Plug 'PotatoesMaster/i3-vim-syntax'
+"Plug 'PotatoesMaster/i3-vim-syntax'
+"Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
 Plug 'jreybert/vimagit'
 Plug 'vimwiki/vimwiki'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-commentary'
 Plug 'vifm/vifm.vim'
-Plug 'kovetskiy/sxhkd-vim'
+"Plug 'kovetskiy/sxhkd-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'posva/vim-vue'
+"Plug 'posva/vim-vue'
 Plug 'preservim/nerdcommenter'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'thosakwe/vim-flutter'
-Plug 'natebosch/vim-lsc'
+"Plug 'natebosch/vim-lsc'
 Plug 'natebosch/vim-lsc-dart'
+Plug 'junegunn/fzf.vim'
+Plug 'evanleck/vim-svelte', {'branch': 'main'}
 call plug#end()
 
 "-------------FILE HISTORY--------------"
@@ -56,7 +61,7 @@ set visualbell                  " don't beep "
 set noerrorbells                " don't beep "
 set mouse=a                     " Allows Your To Use Mouse "
 set timeout timeoutlen=1000 ttimeoutlen=10
-set bg=light
+set bg=dark
 set go=a
 set clipboard=unnamedplus
 " Set Mappings to move lines"
@@ -100,6 +105,43 @@ let g:NERDTreeIndicatorMapCustom = {
     \ }
 
 "-------------Plugins--------------"
+"--- uses fzf.vim this configure Tags Command ----"
+function! s:tags_sink(line)
+  let parts = split(a:line, '\t\zs')
+  let excmd = matchstr(parts[2:], '^.*\ze;"\t')
+  execute 'silent e' parts[1][:-2]
+  let [magic, &magic] = [&magic, 0]
+  execute excmd
+  let &magic = magic
+endfunction
+
+function! s:tags()
+  if empty(tagfiles())
+    echohl WarningMsg
+    echom 'Preparing tags'
+    echohl None
+    call system('ctags -R')
+  endif
+
+  call fzf#run({
+  \ 'source':  'cat '.join(map(tagfiles(), 'fnamemodify(v:val, ":S")')).
+  \            '| grep -v -a ^!',
+  \ 'options': '+m -d "\t" --with-nth 1,4.. -n 1 --tiebreak=index',
+  \ 'down':    '40%',
+  \ 'sink':    function('s:tags_sink')})
+endfunction
+
+command! Tags call s:tags()
+"Quickly browse to any tag/symbol in the project.
+"Tip: run ctags -R to regenerated the index.
+" Ctags related to laravel so we prefix it with l"
+nmap <Leader>lt :Tags<cr>
+" RUN THIS COMMAND TO GENERATE CTAGS "
+" ctags -R --exclude=.git --exclude=node_modules --exclude=test --exclude=vendor --exclude=_ide_helper.php --exclude=ide_helper_models.php --exclude=package-lock.json --exclude=composer.lock --exclude=public --exclude=nova-components --exclude=packages --exclude=resources --exclude=.vscode --exclude=composer.json --exclude=package.json --exclude=storage; "
+
+"Sort PHP use statements
+"http://stackoverflow.com/questions/11531073/how-do-you-sort-a-range-of-lines-by-length
+vmap <Leader>su ! awk '{ print length(), $0 \| "sort -n \| cut -d\\  -f2-" }'<cr>
 
 "/
 "/ Vim Vinegar
@@ -111,7 +153,10 @@ let g:NERDTreeIndicatorMapCustom = {
 "/
 "/ CtrlP
 "/
+nnoremap <C-Z> u
+nnoremap <C-Y> <C-R>
 map <C-p> :CtrlP<cr>
+nmap <C-t> :CtrlPBufTag<cr>
 nmap <C-e> :CtrlPMRUFiles<cr>
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|tags\|bootstrap\|tests\|vendor\|storage\|laradock\|docker\|npm-debug'
 let g:ctrlp_match_window = 'top,order:ttb,min:1,max:30,results:30'
@@ -154,7 +199,7 @@ nnoremap <F3> :set hlsearch!<CR>
 nmap <Leader><space> :nohlsearch<cr>
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 " Save Us From Pressing Shift "
-nnoremap ; :
+"nnoremap ; :
 
 "-------------INDENTION--------------"
 set autoindent                  " always set autoindenting on "
@@ -240,19 +285,33 @@ set shiftround                  " use multiple of shiftwidth when indenting with
 	autocmd VimLeave *.tex !texclear %
 
 " Ensure files are read as what I want:
+    let g:vimwiki_customwiki2html=$HOME.'/.config/nvim/plugged/vimwiki/autoload/vimwiki/customwiki2html.sh'
 	let g:vimwiki_ext2syntax = {'.Rmd': 'markdown', '.rmd': 'markdown','.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
-	let g:vimwiki_list = [{'path': '~/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
+	let g:vimwiki_list = [{'path': '~/Documents/vimwiki', 'syntax': 'markdown', 'ext': '.md', 'path_html': '~/Documents/wiki_html' }]
 	autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markdown
 	autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
 	autocmd BufRead,BufNewFile *.tex set filetype=tex
+	function! VimwikiFindIncompleteTasks()
+    lvimgrep /- \[ \]/ %:p
+    lopen
+    endfunction
+
+    function! VimwikiFindAllIncompleteTasks()
+    VimwikiSearch /- \[ \]/
+    lopen
+    endfunction
+
+    nmap <Leader>wa :call VimwikiFindAllIncompleteTasks()<CR>
+    nmap <Leader>wx :call VimwikiFindIncompleteTasks()<CR>
 
 " Enable Goyo by default for mutt writting
 	" Goyo's width will be the line limit in mutt.
 	autocmd BufRead,BufNewFile /tmp/neomutt* let g:goyo_width=80
 	autocmd BufRead,BufNewFile /tmp/neomutt* :Goyo \| set bg=light
 
-" Automatically deletes all trailing whitespace on save.
+" Automatically deletes all trailing whitespace and newlines at end of file on save.
 	autocmd BufWritePre * %s/\s\+$//e
+	autocmd BufWritepre * %s/\n\+\%$//e
 " When shortcut files are updated, renew bash and ranger configs with new material:
 	autocmd BufWritePost files,directories !shortcuts
 
@@ -525,9 +584,16 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
+" VIMLSP
+let g:markdown_fenced_languages = [
+      \ 'vim',
+      \ 'help'
+      \]
+
 " Dart
 " Format Dart Code
-noremap <leader>f :DartFmt<cr>
+noremap <leader>df :DartFmt<cr>
+noremap <leader>rf :RustFmt<cr>
 
 let g:lsc_enable_autocomplete = v:true
 let g:lsc_auto_map = {
@@ -554,3 +620,22 @@ nnoremap <leader>fR :FlutterHotRestart<cr>
 nnoremap <leader>fD :FlutterVisualDebug<cr>
 noremap <leader>tr :DartToggleMethodBodyType<cr>
 noremap <leader>ts :DartToggleFormatOnSave<cr>
+noremap <leader>lrn :CocCommand document.renameCurrentWord<cr>
+" PHP keybind we learned "
+" g ] = this will show all our usage of the class | u can also use gr "
+" not working is the method rename and Class Rename "
+
+" Vim Fugitive
+nmap <leader>gj :diffget //3<CR>
+nmap <leader>gf :diffget //2<CR>
+nmap <leader>gs :G<CR>
+
+"let g:vim_be_good_floating = 0
+autocmd CursorHold * silent call CocActionAsync('highlight')
+" bind replace color code
+nnoremap <F4> :call CocAction('pickColor')<CR>
+nnoremap <F5> :call CocAction('colorPresentation')<CR>
+
+let g:svelte_indent_script = 0
+let g:svelte_indent_style = 0
+let g:svelte_preprocessors = ['typescript']
