@@ -1,0 +1,3 @@
+#!/bin/sh
+
+kill $(pidof python3) || org.fdroid.Repomaker

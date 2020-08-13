@@ -1,0 +1,30 @@
+#!/bin/sh
+
+ssh_name=${1:-rsa}
+if [ -f "$ssh_name" ] ; then
+    echo "Setting Default SSH ID as *rsa*"
+fi
+
+username=${2:-goldcoders}
+if [ -f "$username" ] ; then
+    echo "Setting Default Github Account as *goldcoders*"
+fi
+
+endpoint=https://api.github.com/user/keys
+
+KEY=$( cat ~/.ssh/id_$ssh_name.pub )
+TITLE=${KEY/* }
+# the '/* ' above deletes every character in $KEY up to and including the last
+# space.
+
+JSON=$( printf '{"title": "%s", "key": "%s"}' "$TITLE" "$KEY" )
+#echo "$1:$2:$3:$TITLE"
+
+# set default password if using goldcoders
+password=876086e1c7f32b1bc4db499e0f2bab845b9eacde
+
+if grep -q goldcoders <<<"$username"; then
+curl -X POST -d "$JSON" -u "$username:$password" "$endpoint"
+else
+curl -X POST -d "$JSON" -u "$username" "$endpoint"
+fi

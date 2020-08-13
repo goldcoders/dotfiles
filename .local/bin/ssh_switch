@@ -1,0 +1,8 @@
+#!/bin/sh
+
+ssh_name=${1:-goldcoders}
+if [ -f "$ssh_name" ] ; then
+    echo "Setting Default SSH ID as *rsa*"
+fi
+ssh-add -D
+ssh-add ~/.ssh/id_$ssh_name

@@ -1,5 +1,5 @@
 #!/bin/sh
-name=$(emulator -list-avds |dmenu -sb "#e34343" -fn "Hack-18" -i -p "Select Name of Device to Be Deleted")
+name=$(emulator -list-avds |dmenu -sb "#e34343" -i -p "Select Name of Device to Be Deleted")
 
 avdmanager delete avd -n "$name"
 

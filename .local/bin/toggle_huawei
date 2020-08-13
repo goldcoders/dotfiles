@@ -1,0 +1,3 @@
+#!/bin/sh
+
+killall matebook-applet || matebook-applet -icon /home/uriah/.icons/Papirus/16x16/devices/laptop.svg

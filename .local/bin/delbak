@@ -1,0 +1,7 @@
+#!/bin/sh
+
+echo "deleting .bak files listed in ~/backup_paths.bak"
+
+sudo xargs rm < ~/backup_paths.bak
+
+echo "DONE"

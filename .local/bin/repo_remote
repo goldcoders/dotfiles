@@ -1,0 +1,10 @@
+#!/bin/sh
+# ssh_remote username/repo
+username=${1%%/*}
+repo=${1##*/}
+
+if grep -q goldcoders <<<"$username"; then
+git remote set-url origin "git@github.com:$username/$repo.git"
+else
+git remote set-url origin "git@$username.github.com:$username/$repo.git"
+fi

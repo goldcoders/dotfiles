@@ -1,19 +1,22 @@
 #!/usr/bin/env sh
 vidlist="
-status bar	https://www.youtube.com/watch?v=gKumet6b-WY
-sxiv (image viewer)	https://www.youtube.com/watch?v=GYW9i_u5PYs
-st (terminal)	https://www.youtube.com/watch?v=9H75enWM22k
-i3 (window manager)		https://www.youtube.com/watch?v=GKviflL9XeI
-pacman (installing/managing programs)	https://www.youtube.com/watch?v=-dEuXTMzRKs
-mutt (email)		https://www.youtube.com/watch?v=2U3vRbF7v5A
-ncmpcpp (music player)		https://www.youtube.com/watch?v=sZIEdI9TS2U
-newsboat (RSS reader)	https://www.youtube.com/watch?v=dUFCRqs822w
-ranger (file manager)		https://www.youtube.com/watch?v=L6Vu7WPkoJo
-zathura (pdf viewer)		https://www.youtube.com/watch?v=V_Iz4zdyRM4
-gpg keys	https://www.youtube.com/watch?v=DMGIlj7u7Eo
-calcurse (calendar)	https://www.youtube.com/watch?v=hvc-pHjbhdE
-urlview		https://www.youtube.com/watch?v=IgzpAjFgbCw
-colorschemes with pywal	https://www.youtube.com/watch?v=Es79N_9BblE
-vi mode in shell	https://www.youtube.com/watch?v=GqoJQft5R2E
+rust ownership and borrowing	https://www.youtube.com/watch?v=79phqVpE7cU&list=PLxLxbi4e2mYHj_5jpkigBn-qVLofCYnNn
+lifetimes	https://www.youtube.com/watch?v=tyuDitqoZbM
+String vs str slices	https://www.youtube.com/watch?v=ClPrjjHmo2Y
+12 things to help you learn rust	https://www.youtube.com/watch?v=a8abW3RlOn8&list=PLxLxbi4e2mYHj_5jpkigBn-qVLofCYnNn
+structs, traits, and zero-cost abstractions	https://www.youtube.com/watch?v=Sn3JklPAVLk
+rust crash course	https://www.youtube.com/watch?v=zF34dRivLOw
+structs and traits	https://www.youtube.com/watch?v=LKYSl7kM5q8
+Compiler, Variables, Functions, Strings	https://www.youtube.com/watch?v=l_2hn-Tp6NI&list=PLlcnQQJK8SUjApd95LIcd3K9XXmE-IeCS
+Enums	https://www.youtube.com/watch?v=L63zcHPJrM0&list=PLlcnQQJK8SUjApd95LIcd3K9XXmE-IeCS
+Control Flow	https://www.youtube.com/watch?v=fL-elBR_IiI&list=PLlcnQQJK8SUjApd95LIcd3K9XXmE-IeCS
+Small Calculator App	https://www.youtube.com/watch?v=RYTMn_kLItw&list=PLlcnQQJK8SUjApd95LIcd3K9XXmE-IeCS
+Vector and Hashmap	https://www.youtube.com/watch?v=ic9WEuto-gE&list=PLlcnQQJK8SUjApd95LIcd3K9XXmE-IeCS
+Async Await	https://www.youtube.com/watch?v=1aajQ-NCLDQ
+non-blocking async agents on top of Tokio	https://www.youtube.com/watch?v=guuGCsNAiZg
+Opening and handling files in Rust	https://www.youtube.com/watch?v=vp4o8fbjM8Y
+Actix part1	https://www.youtube.com/watch?v=gQwA0g0NNSI
+Actix part2	https://www.youtube.com/watch?v=e37NbhSm56o
+Actix part3	https://www.youtube.com/watch?v=3vMxuM7ezEk
 "
-echo "$vidlist" | grep -P "^$(echo "$vidlist" | grep "https:" | sed 's/\t.*//g' | dmenu -sb "#FE80AB" -fn "HackNerdFontMono-17" -i -p "Learn about what? (ESC to cancel)" -l 20 | awk '{print $1}')\s" | sed 's/.*\t//' | xargs -r mpv
+echo "$vidlist" | grep -P "^$(echo "$vidlist" | grep "https:" | sed 's/\t.*//g' | dmenu -sb "#0088B2"   -i -p "Learn about what? (ESC to cancel)" -l 20 | awk '{print $1}')\s" | sed 's/.*\t//' | xargs -r mpv

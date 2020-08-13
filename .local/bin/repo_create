@@ -1,0 +1,9 @@
+#!/bin/sh
+username=${1%%/*}
+repo=${1##*/}
+token=${2:-25fea804f30749062f83e59cd2d1f91c7dd635ed}
+JSON=$( printf '{"name": "%s"}' "$repo")
+
+curl -H "Authorization: token $token" -d "$JSON" https://api.github.com/user/repos >/dev/null 2>&1
+
+git remote add origin "git@$username.github.com:$username/$repo.git"

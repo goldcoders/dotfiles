@@ -1,0 +1,6 @@
+#!/bin/sh
+email=${2:-codeitlikemiley@gmail.com}
+filename="${1?}"
+name=$(echo "$filename" | cut -f 1 -d '.')
+
+gpg --encrypt --sign -o "${name}.asc" --armor -r $email $filename

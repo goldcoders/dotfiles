@@ -1,4 +1,0 @@
-#!/bin/sh
-
-notify-send  "$(i3-gnome-pomodoro status)" -i /usr/share/icons/hicolor/scalable/apps/gnome-pomodoro-symbolic.svg
-

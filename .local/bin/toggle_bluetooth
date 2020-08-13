@@ -1,6 +1,7 @@
 #!/bin/sh
 
-killall blueberry && sudo rfkill block bluetooth && \
-notify-send -a 'Bluetooth:' 'Bluetooth Disabled' -i /usr/share/icons/hicolor/scalable/status/blueberry-disabled.svg  || \
-blueberry && sudo rfkill unblock bluetooth && \
-notify-send -a 'Bluetooth:' 'Bluetooth Enabled' -i /usr/share/icons/hicolor/scalable/status/blueberry-active.svg
+killall blueberry || blueberry
+#killall blueberry && sudo rfkill block bluetooth && \
+#notify-send -a 'Bluetooth:' 'Bluetooth Disabled' -i /usr/share/icons/hicolor/scalable/status/blueberry-disabled.svg  || \
+#blueberry && sudo rfkill unblock bluetooth && \
+#notify-send -a 'Bluetooth:' 'Bluetooth Enabled' -i /usr/share/icons/hicolor/scalable/status/blueberry-active.svg

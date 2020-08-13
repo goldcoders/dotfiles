@@ -16,5 +16,9 @@ if [ -f "$name" ] ; then
     echo "Opps You didnt specify An ID"
     return;
 fi
-cd $sshdir && ssh-keygen -t rsa -b 4096 -C "${comment}" -f "id_$name" && cd "$cwd" || exit
-
+FILE=~/.ssh/id_$name
+if test -f "$FILE"; then
+    echo "$FILE exists already for that SSH ID"
+    exit;
+fi
+cd $sshdir && ssh-keygen -t rsa -b 4096 -C "${comment}" -f "id_$name" && ssh-add "id_$name" && cd "$cwd" || exit

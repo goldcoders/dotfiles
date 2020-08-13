@@ -1,0 +1,9 @@
+#!/bin/sh
+
+awk '{ print $0 ".bak" }' < ~/backup_paths.txt > ~/backup_paths.bak
+
+# we create a backup to all files before we remove them
+for f in $(cat /home/uriah/backup_paths.txt); do
+    sudo cp "$f" "$f".bak
+    sudo rm "$f"
+done
