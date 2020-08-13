@@ -1,6 +1,6 @@
 {
     //window
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 4,
     // explorer
     "explorer.openEditors.visible": 0,
     // editor default
@@ -41,7 +41,7 @@
         "statusBar.debuggingBackground": "#8FBCBB",
         "statusBar.foreground": "#434C5E"
     },
-    "workbench.colorTheme": "Night Owl",
+    "workbench.colorTheme": "Popping and Locking",
     "workbench.editor.showTabs": true,
     "workbench.iconTheme": "vscode-icons",
     //   "breadcrumbs.enabled": true,
@@ -102,6 +102,32 @@
     },
     "markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownBeingEdited": false,
     "[html]": {
-        "editor.defaultFormatter": "vscode.html-language-features"
-    }
+        "editor.defaultFormatter": "vscode.html-language-features",
+        "editor.formatOnSave": false
+    },
+    "todo-tree.tree.showScanModeButton": false,
+    "dart.previewFlutterUiGuides": true,
+    "dart.previewFlutterUiGuidesCustomTracking": true,
+    "dart.openDevTools": "flutter",
+    "vsicons.dontShowNewVersionMessage": true,
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "go.useLanguageServer": true,
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "mervin.markdown-formatter"
+    },
+    "[toml]": {
+        "editor.defaultFormatter": "be5invis.toml"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "editor.accessibilitySupport": "off"
 }
