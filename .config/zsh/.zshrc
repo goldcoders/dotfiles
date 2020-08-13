@@ -51,6 +51,8 @@ setopt inc_append_history       # immediate append ,ensures commands are added t
 [ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
+setopt autocd		# Automatically cd into typed directory.
+stty stop undef		# Disable ctrl-s to freeze terminal.
 
 autoload -U compinit
 zstyle ':completion:*' menu select
@@ -60,14 +62,16 @@ compinit
 # Include hidden files in autocomplete:
 _comp_options+=(globdots)
 
+# vi mode
+bindkey -v
+export KEYTIMEOUT=1
+
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
-
-export KEYTIMEOUT=1
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select {
@@ -111,6 +115,9 @@ lfcd () {
 }
 
 bindkey -s '^o' 'lfcd\n'  # zsh
+bindkey -s '^a' 'bc -l\n'
+bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n' # find file using fzf
+bindkey '^[[P' delete-char
 
 # Edit line in vim with ctrl-e
 autoload edit-command-line; zle -N edit-command-line
@@ -125,7 +132,7 @@ zle -N expand-alias
 bindkey -M main ' ' expand-alias
 
 # Add All Syntax Highlighting Below
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
 source /usr/share/fzf/completion.zsh 2> /dev/null
 source /usr/share/fzf/key-bindings.zsh 2> /dev/null
 source ./_hub 2> /dev/null
