@@ -1,7 +1,7 @@
 [Default Applications]
 x-scheme-handler/magnet=torrent.desktop;
 application/x-bittorrent=torrent.desktop;
-x-scheme-handler/mailto=mail.desktop;
+x-scheme-handler/mailto=mail.desktop
 text/plain=text.desktop;
 text/x-shellscript=text.desktop;
 application/postscript=pdf.desktop;
@@ -17,6 +17,9 @@ x-scheme-handler/spice=org.remmina.Remmina.desktop
 x-scheme-handler/vnc=org.remmina.Remmina.desktop
 x-scheme-handler/remmina=org.remmina.Remmina.desktop
 application/x-remmina=org.remmina.Remmina.desktop
+x-scheme-handler/postman=Postman.desktop
+x-scheme-handler/msteams=teams.desktop
+inode/directory=file.desktop
 
 [Added Associations]
 x-scheme-handler/rdp=org.remmina.Remmina.desktop;
@@ -24,3 +27,5 @@ x-scheme-handler/spice=org.remmina.Remmina.desktop;
 x-scheme-handler/vnc=org.remmina.Remmina.desktop;
 x-scheme-handler/remmina=org.remmina.Remmina.desktop;
 application/x-remmina=org.remmina.Remmina.desktop;
+x-scheme-handler/figma=figma-linux.desktop
+application/x-bittorrent=org.qbittorrent.qBittorrent.desktop;
