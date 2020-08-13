@@ -3,21 +3,12 @@
 # Adds `~/.local/bin` to $PATH
 export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//'):$HOME/.config/composer/vendor/bin:$(ruby -e 'puts Gem.user_dir')/bin:$HOME/.go/bin"
 
-# Get default LARBS WM from ~/.local/share/larbs/wm
-#export LARBSWM="$(cat ~/.local/share/larbs/wm 2>/dev/null)" &&
-#	[ "$LARBSWM" = "dwm" ] || export LARBSWM="i3"
-
 # Default programs:
 export EDITOR="nvim"
 export TERMINAL="st"
 export BROWSER="firefox"
 export READER="zathura"
 export FILE="ranger"
-#export STATUSBAR="${LARBSWM}blocks"
-#export LC_ALL=en_US.UTF-8
-#export LANG=en_US.UTF-8
-#export LANGUAGE=en_US.UTS-8
-
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 
@@ -30,7 +21,6 @@ export LESSHISTFILE="-"
 export INPUTRC="$XDG_CONFIG_HOME/inputrc"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export WINEPREFIX="${XDG_DATA_HOME:-$HOME/.local/share}/wineprefixes/default"
-#export ALSA_CONFIG_PATH="$HOME/.config/alsa/asoundrc" # alsa error so i remove it
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
 export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
 export GOPATH=~/.go
@@ -51,14 +41,6 @@ export MOZ_USE_XINPUT2="1"		# Mozilla smooth scrolling/touchpads.
 export _JAVA_AWT_WM_NONREPARENTING=1	# Fix for Java applications in dwm
 
 mpd >/dev/null 2>&1 &
-
-#[ ! -f ~/.config/shortcutrc ] && shortcuts >/dev/null 2>&1
-
-# Start graphical server on tty1 if not already running.
-#[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null && exec startx
-
-# Switch escape and caps if tty and no passwd required:
-#sudo -n loadkeys ~/.local/share/larbs/ttymaps.kmap 2>/dev/null
 
 # This is the list for lf icons:
 export LF_ICONS="di=📁:\
