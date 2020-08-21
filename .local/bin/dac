@@ -14,11 +14,11 @@ exit
 fi
 
 message=$(echo "Please Specify a Commit Message" | dmenu -sb "#e34343")
-if [ $message ]; then
+if [ -z "$message" ]; then
+notify-send "⚠ No Commit Message Typed..." "Please Try Again..."
+else
 git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME add "$gpath"
 git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME commit -m "$message"
 notify-send "🎉 Dot File Commited, And Ready For Push"
-else
-notify-send "⚠ Config File Not Commited" "Please Try Again..."
 exit
 fi
