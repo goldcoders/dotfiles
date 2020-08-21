@@ -1,3 +1,2 @@
 #!/bin/sh
-killall screenkey || screenkey
-
+killall  screenkey || screenkey -p fixed -g 100%x8%+0%+92% --opacity 0.8 -f "Monospace Bold" --font-color "#FE80AB"
