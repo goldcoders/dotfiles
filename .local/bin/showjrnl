@@ -1,2 +1,2 @@
 #!/bin/sh
-jrnl -ls | awk 'FNR == 1 {next} {print $2}' | dmenu -sb "#0088B2" -i -p "View Journal From?"  | xargs -r -I {} sh -c "jrnl {} -a | less -"
+jrnl -ls | awk 'FNR == 1 {next} {print $2}' | dmenu -sb "#FE80AB" -i -p "View Journal From?"  | xargs -r -I {} sh -c "jrnl {} -a | less -"

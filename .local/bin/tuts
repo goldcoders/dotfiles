@@ -19,4 +19,4 @@ Actix part1	https://www.youtube.com/watch?v=gQwA0g0NNSI
 Actix part2	https://www.youtube.com/watch?v=e37NbhSm56o
 Actix part3	https://www.youtube.com/watch?v=3vMxuM7ezEk
 "
-echo "$vidlist" | grep -P "^$(echo "$vidlist" | grep "https:" | sed 's/\t.*//g' | dmenu -sb "#0088B2"   -i -p "Learn about what? (ESC to cancel)" -l 20 | awk '{print $1}')\s" | sed 's/.*\t//' | xargs -r mpv
+echo "$vidlist" | grep -P "^$(echo "$vidlist" | grep "https:" | sed 's/\t.*//g' | dmenu -sb "#FE80AB"   -i -p "Learn about what? (ESC to cancel)" -l 20 | awk '{print $1}')\s" | sed 's/.*\t//' | xargs -r mpv

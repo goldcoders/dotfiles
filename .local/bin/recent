@@ -6,4 +6,4 @@ docs	/home/uriah/.thriftshop-site/docs
 cms	/home/uriah/.thriftshop-site/hokus-cms
 lambda	/home/uriah/.thriftshop-site/microservices
 "
-echo "$list" | grep -P "^$(echo "$list" | grep "/home/uriah/" | sed 's/\t.*//g' | dmenu -sb "#0088B2"   -i -p "Open Project? (ESC to cancel)" -l 20 | awk '{print $1}')\s" | sed 's/.*\t//' | xargs -r code
+echo "$list" | grep -P "^$(echo "$list" | grep "/home/uriah/" | sed 's/\t.*//g' | dmenu -sb "#FE80AB"   -i -p "Open Project? (ESC to cancel)" -l 20 | awk '{print $1}')\s" | sed 's/.*\t//' | xargs -r code

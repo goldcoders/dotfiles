@@ -10,6 +10,6 @@ reboot pc	sudo -A reboot -h now
 shutdown pc	sudo -A shutdown -h now
 "
 
-choice="$(echo "$cmds" | cut -d'	' -f 1 | dmenu -sb "#0088B2")"
+choice="$(echo "$cmds" | cut -d'	' -f 1 | dmenu -sb "#FE80AB")"
 
 `echo "$cmds" | grep "^$choice	" | cut -d '	' -f2`

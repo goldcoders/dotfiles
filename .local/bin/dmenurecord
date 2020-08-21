@@ -80,7 +80,7 @@ audio() { \
 	}
 
 askrecording() { \
-	choice=$(printf "screencast\\nvideo\\naudio\\nwebcam\\nwebcam (hi-def)" | dmenu  -sb "#0088B2" -i -p "Select recording style:")
+	choice=$(printf "screencast\\nvideo\\naudio\\nwebcam\\nwebcam (hi-def)" | dmenu  -sb "#FE80AB" -i -p "Select recording style:")
 	case "$choice" in
 		screencast) screencast;;
 		audio) audio;;
