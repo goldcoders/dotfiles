@@ -6,19 +6,20 @@
 # escape spaces and slashes
 # add to bare repo
 # commit bare repo
-gpath=$(git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME status | awk '/working directory)/,EOF { print $0 }' | tail +2 | awk '{for (i=2;i<=NF;i++) printf("%s ",$i)} {print ""}' | dmenu -sb "#e34343" |sed 's/ *$//g' | sed 's/ /\\ /g')
+gpath=$(git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME status | awk '/working directory)/,EOF { print $0 }' | tail +2 | awk '{for (i=2;i<=NF;i++) printf("%s ",$i)} {print ""}'|head -n -1 | dmenu -sb "#e34343" |sed 's/ *$//g' | sed 's/ /\\ /g')
 
-if [ -z $gpath ]; then
+if [ ! -f "$gpath" ]; then
 notify-send "⚠ Config File Not Commited" "Please Try Again..."
 exit
 fi
 
 message=$(echo "Please Specify a Commit Message" | dmenu -sb "#e34343")
-if [ -n "$message" ]; then
+if [ "$message" == "Please Specify a Commit Message" ]; then
+notify-send "⚠ No Commit Message Specified" "Please Try Again..."
+exit
+else
+notify-send "🎉 Dot Config Commited"
 git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME add "$gpath"
 git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME commit -m "$message"
-notify-send "🎉 Dot Config Commited"
-else
-notify-send "⚠ No Commit Message" "Please Try Again..."
 exit
 fi
