@@ -19,6 +19,6 @@ git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME add "$gpath"
 git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME commit -m "$message"
 notify-send "🎉 Dot File Commited, And Ready For Push"
 else
-notify-send "⚠ No Commit Message Typed..." "Please Try Again..."
+notify-send "⚠ No Commit Message Typed" "Please Try Again..."
 exit
 fi
