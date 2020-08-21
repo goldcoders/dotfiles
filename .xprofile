@@ -11,3 +11,4 @@ matebook-applet -icon /home/uriah/Pictures/huawei-logo.svg &
 compton >/dev/null 2>&1 &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 >/dev/null 2>&1 &
 /usr/bin/optimus-manager-qt > /dev/null 2>&1 &
+/usr/bin/clipmenud > /dev/null 2>&1 &
