@@ -17,7 +17,7 @@ message=$(echo "Please Specify a Commit Message" | dmenu -sb "#e34343")
 if [ -n "$message" ]; then
 git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME add "$gpath"
 git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME commit -m "$message"
-notify-send "🎉 Dot File Commited Successfully"
+notify-send "🎉 Dot Config Commited"
 else
 notify-send "⚠ No Commit Message" "Please Try Again..."
 exit
