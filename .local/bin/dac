@@ -1,11 +1,5 @@
 #!/bin/sh
-# dot status
-# tail log file after a keyword match
-# awk second word to the end of line
-# sanitize trailing and leading space
-# escape spaces and slashes
-# add to bare repo
-# commit bare repo
+
 gpath=$(git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME status | awk '/working directory)/,EOF { print $0 }' | tail +2 | awk '{for (i=2;i<=NF;i++) printf("%s ",$i)} {print ""}'|head -n -1 | dmenu -sb "#e34343" |sed 's/ *$//g' | sed 's/ /\\ /g')
 
 if [ ! -f "$gpath" ]; then
