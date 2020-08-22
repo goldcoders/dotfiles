@@ -10,11 +10,11 @@ swipe:
       command: 'xdotool key ctrl+minus'
   4:
     left:
-      command: 'xdotool key super+Tab'
+      command: 'xdotool key super+bracketright'
     right:
-      command: 'xdotool key super+Tab'
+      command: 'xdotool key super+bracketleft'
     up:
-      command: 'xdotool key ctrl+t'
+      command: 'xdotool key super+f'
     down:
       command: 'xdotool key ctrl+w'
 pinch:
