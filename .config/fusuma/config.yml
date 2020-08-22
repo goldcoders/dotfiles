@@ -10,9 +10,9 @@ swipe:
       command: 'xdotool key ctrl+minus'
   4:
     left:
-      command: 'xdotool key super+bracketright'
+      command: 'xdotool key super+Shift+apostrophe'
     right:
-      command: 'xdotool key super+bracketleft'
+      command: 'xdotool key super+apostrophe'
     up:
       command: 'xdotool key super+f'
     down:
