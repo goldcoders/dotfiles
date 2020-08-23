@@ -1,0 +1,73 @@
+#!/bin/bash
+export TTS_VOICE="Justin"
+export TTS_ENGINE="standard"
+export TTS_DIR="~/tts"
+
+# Prepare Directory To Be Used!
+if [[ ! -d ~/tts ]]; then
+  mkdir -pv ~/tts
+fi
+
+# Set voice
+TTS_VOICE=$(echo "Ivy
+Joanna
+Joey
+Justin
+Kendra
+Kimberly
+Matthew
+Salli" | dmenu -i -sb "#FE80AB" -p "Select A Voice")
+
+# error handler on voice
+if [ ! -n "$TTS_VOICE" ];then
+notify-send "⚠ No Voice Seleected" "Please Choose a Voice to Use!"
+echo "❌ No Voice Selected" 1>&2
+exit 1
+fi
+
+cd ~/
+
+# Choose a Directory
+TTS_DIR=~/$(ls -d */ | dmenu -sb "#FE80AB" -p "Choose A Directory")
+
+SELECTED=$(cd "$TTS_DIR" && ls *.xml | dmenu -sb "#FE80AB")
+
+if [ ! -n "$SELECTED" ];then
+notify-send "⚠ No Files Selected" "Please Select XML File."
+echo "❌ No Files Selected" 1>&2
+exit 1
+fi
+
+TTS_ENGINE=$(echo "standard
+neural"|dmenu -sb "#FE80AB" -p "Select Text To Speech Engine")
+
+if [ "${SELECTED##*.}" != "xml" ]; then
+notify-send "⚠ Invalid File Type" "Text To Speech Engine Only Accept XML File Type Please Make Sure Your File Extension is Correct."
+echo "❌ Invalid File Type! Required .xml file" 1>&2
+exit 1
+fi
+
+filename=$(basename "$SELECTED")
+file="${filename%.*}"
+
+# Check AWS If Present in System
+if ! command -v aws &> /dev/null
+then
+    notify-send "⚠ Command Not Found!" "The Command For Converting Text To Speech Is Not Installed In Your System!"
+    exit
+fi
+
+
+# ready to execute command
+cd "$TTS_DIR"
+# add timestamp
+date=$(date "+%Y.%m.%d-%H.%M.%S")
+# text to speech
+aws polly synthesize-speech --text-type ssml --engine "$TTS_ENGINE" --output-format mp3 --voice-id "${TTS_VOICE}" --text file://"${filename}" "${file}.${date}.mp3"
+
+RESULT=$?
+if [ $RESULT -eq 0 ]; then
+    notify-send "✅ Text To Speech Success" "We have Successfully Process Your File to ${file}.${date}.mp3"
+else
+   notify-send "⚠  ValidationException" "You might be Using an SSML feature Not Available For Voice: ${TTS_VOICE}"
+fi

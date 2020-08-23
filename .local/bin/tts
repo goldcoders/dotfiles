@@ -1,0 +1,125 @@
+#!/bin/bash
+export TTS_VOICE="Justin"
+export TTS_ENGINE="standard"
+export TTS_DIR="$(pwd)"
+FILENAME=""
+
+# Prepare Directory To Be Used!
+if [[ ! -d ~/tts ]]; then
+  mkdir -pv ~/tts
+fi
+
+while test $# -gt 0; do
+  case "$1" in
+    -l|--voices)
+      echo "List of Voice Name That Can Be Use By Our Text To Speech Program"
+      echo " "
+      echo "Ivy"
+      echo "Joanna"
+      echo "Joey"
+      echo "Justin"
+      echo "Kendra"
+      echo "Kimberly"
+      echo "Matthew"
+      echo "Salli"
+      exit 0
+      ;;
+    -t|--types)
+      echo "Text To Speech Engine Available"
+      echo " "
+      echo "standard"
+      echo "neural"
+      exit 0
+      ;;
+    -h|--help)
+      echo " "
+      echo "[options] text to speech command line [arguments]"
+      echo " "
+      echo "options:"
+      echo "-h, --help                           show brief help"
+      echo "-ls, --voices                        List of Voices Available"
+      echo "-t, --types                          List of Speech Engine Available"
+      echo "-v, --voice=DEFAULT(Justin)          Choose from the following: Ivy,Joanna,Joey,Justin,Kendra,Kimberly,Matthew,Salli"
+      echo "-f, --file=FILENAME(required)        an xml file using ssml tag"
+      echo "-e, --engine=DEFAULT(standard)       Engine to use standard or neural"
+      exit 0
+      ;;
+    -v)
+      shift
+      if test $# -gt 0; then
+        TTS_VOICE=$1
+      else
+        echo "no voice specified"
+        exit 1
+      fi
+      shift
+      ;;
+    --voice*)
+        TTS_VOICE=$1
+      shift
+      ;;
+    -e)
+      shift
+      if test $# -gt 0; then
+        TTS_ENGINE=$1
+      else
+        echo "no speech engine specified"
+        exit 1
+      fi
+      shift
+      ;;
+    --engine*)
+        TTS_ENGINE=$1
+      shift
+      ;;
+    -f)
+      shift
+      if test $# -gt 0; then
+        FILENAME=$1
+      else
+        echo "no filename specified"
+        exit 1
+      fi
+      shift
+      ;;
+    --file*)
+        FILENAME=$1
+      shift
+      ;;
+    *)
+      break
+      ;;
+  esac
+done
+
+
+if [ ! -n "$FILENAME" ];then
+notify-send "⚠ File Not Specified" "At Least One Parameter Is Needed, Provide Filename with .xml extension."
+echo "❌ File Not Specified!" 1>&2
+exit 1
+fi
+
+if [ "${FILENAME##*.}" != "xml" ]; then
+notify-send "⚠ Invalid File Type" "Text To Speech Engine Only Accept XML File Type Please Make Sure Your File Extension is Correct."
+echo "❌ Invalid File Type! Required .xml file" 1>&2
+exit 1
+fi
+
+file="${FILENAME%.*}"
+
+if ! command -v aws &> /dev/null
+then
+    notify-send "⚠ Command Not Found!" "The Command For Converting Text To Speech Is Not Installed In Your System!"
+    exit
+fi
+
+# set timestamp
+date=$(date "+%Y.%m.%d-%H.%M.%S")
+
+aws polly synthesize-speech --text-type ssml --engine "$TTS_ENGINE" --output-format mp3 --voice-id "${TTS_VOICE}" --text file://"${FILENAME}" "${file}.${date}.mp3" || \
+notify-send "⚠  ValidationException" "You might be Using an SSML feature Not Available For Voice: ${TTS_VOICE}" && echo "Debug Info 💥💥💥
+voice 🗣️: $TTS_VOICE
+file 📄 : $FILENAME
+dir 📁: $TTS_DIR
+speech engine 🎙️: $TTS_ENGINE
+"
