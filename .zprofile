@@ -39,6 +39,12 @@ export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
 export QT_QPA_PLATFORMTHEME="gtk2"	# Have QT use gtk2 theme.
 export MOZ_USE_XINPUT2="1"		# Mozilla smooth scrolling/touchpads.
 export _JAVA_AWT_WM_NONREPARENTING=1	# Fix for Java applications in dwm
+# AWS config
+export AWS_CONFIG_FILE=$XDG_CONFIG_HOME/aws/config
+export AWS_PROFILE=default #testing
+export AWS_DEFAULT_REGION=us-west-2
+
+
 
 mpd >/dev/null 2>&1 &
 
