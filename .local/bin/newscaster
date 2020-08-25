@@ -61,13 +61,14 @@ fi
 # ready to execute command
 cd "$TTS_DIR"
 # add timestamp
-date=$(date "+%Y.%m.%d-%H.%M.%S")
+date=$(date "+%Y-%m-%d-%H:%M:%S")
 # text to speech
+
 aws polly synthesize-speech --text-type ssml --engine "$TTS_ENGINE" --output-format mp3 --voice-id "${TTS_VOICE}" --text file://"${filename}" "${file}.${date}.mp3"
 
 RESULT=$?
 if [ $RESULT -eq 0 ]; then
     notify-send "✅ Text To Speech Success" "We have Successfully Process Your File to ${file}.${date}.mp3"
 else
-   notify-send "⚠  ValidationException" "You might be Using an SSML feature Not Available For Voice: ${TTS_VOICE}"
+   notify-send "⚠  ValidationException" "You might be Using an invalid SSML tag.\\nDebug Input Used: \\nVoice: ${TTS_VOICE} \\nEngine: ${TTS_ENGINE} \\nFile: ${filename} \\nOutput: ${file}.${date}.mp3"
 fi
