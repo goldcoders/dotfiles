@@ -1,4 +1,4 @@
-[default]
+[profile default]
 aws_access_key_id=AKIAJ3IUDRYKG27KDA2A
 aws_secret_access_key=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
 # Optional, to define default region for this profile.
