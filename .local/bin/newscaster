@@ -1,11 +1,11 @@
 #!/bin/bash
 export TTS_VOICE="Justin"
 export TTS_ENGINE="standard"
-export TTS_DIR="~/tts"
+export TTS_DIR="~/.tts"
 
 # Prepare Directory To Be Used!
-if [[ ! -d ~/tts ]]; then
-  mkdir -pv ~/tts
+if [[ ! -d ~/.tts ]]; then
+  mkdir -pv ~/.tts
 fi
 
 # Set voice
