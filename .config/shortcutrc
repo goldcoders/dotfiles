@@ -14,6 +14,7 @@ z="cd ~/.thriftshop-site && ls -a" \
 zz="cd ~/.thriftshop-site/thrift-shop-site && ls -a" \
 hh="cd ~/.thriftshop-site/thrift-shop-site/themes/theme && ls -a" \
 cnps="cd ~/Documents/.tauri/canopus && ls -a" \
+aa="cd ~/.tts && ls -a" \
 cfa="$EDITOR ~/.config/aliasrc" \
 cfA="$EDITOR ~/.config/alacritty/alacritty.yml" \
 cfb="$EDITOR ~/.config/bookmarks" \
