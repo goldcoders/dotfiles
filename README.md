@@ -3,7 +3,7 @@
 > My Daily Driver Config for Software Development
 
 - This is Very Minimalist Set Up Around 250MB on Fresh Boot Of System
-- Im Using BTRFS Filesystem for My Root Partition, Easy Rollback When Something Went Wrong Due to System Updates.
+- Im Using BTRFS Filesystem for My Root Partition, Easy Rollback When System update Causes Error >;)
 
 ![pic-full-200827-1207-29](https://user-images.githubusercontent.com/55337687/91383172-11b70b80-e85e-11ea-8f6d-650c116dc3b7.png)
 ![pic-full-200827-1208-02](https://user-images.githubusercontent.com/55337687/91383166-0e238480-e85e-11ea-8d74-abb37f6a7a75.png)
