@@ -6,7 +6,7 @@
 - Im Using BTRFS Filesystem for My Root Partition, Easy Rollback When System update Causes Error >;)
 
 ![pic-full-200830-0826-07](https://user-images.githubusercontent.com/55337687/91648939-88dbe200-eaa0-11ea-9311-9976dd8c6fff.png)
-![pic-full-200830-0936-33](https://user-images.githubusercontent.com/55337687/91649240-75327a80-eaa4-11ea-95d1-4b2821d2dcb7.png)
+![pic-full-200830-0944-20](https://user-images.githubusercontent.com/55337687/91649331-66989300-eaa5-11ea-8427-9d140fbed61e.png)
 ![pic-full-200830-0918-09](https://user-images.githubusercontent.com/55337687/91649251-811e3c80-eaa4-11ea-808a-e687ed9ac36b.png)
 ![pic-full-200830-0926-41](https://user-images.githubusercontent.com/55337687/91649243-79f72e80-eaa4-11ea-83f8-cd47ad6f45d6.png)
 ![pic-full-200830-0928-49](https://user-images.githubusercontent.com/55337687/91649242-782d6b00-eaa4-11ea-981a-9705dc29ef4b.png)
