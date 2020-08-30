@@ -4,9 +4,9 @@
     // explorer
     "explorer.openEditors.visible": 0,
     // editor default
-    "editor.fontWeight": "normal",
+    "editor.fontWeight": "bold",
     "editor.fontLigatures": true,
-    "editor.fontFamily": "Operator Mono Lig",
+    "editor.fontFamily": "monospace",
     "editor.tabSize": 4,
     "editor.insertSpaces": true,
     "editor.renderIndentGuides": false,
@@ -20,12 +20,10 @@
         "strings": true
     },
     "editor.cursorSmoothCaretAnimation": true,
-    // workbench
-    "workbench.statusBar.visible": true,
     "workbench.colorCustomizations": {
         "tab.activeBorder": "#FF4081",
         "list.inactiveSelectionForeground": "#FF4081",
-        "list.activeSelectionBackground": "#00a6a9",
+        "list.activeSelectionBackground": "#FF4081",
         "activityBarBadge.background": "#FF4081",
         "list.activeSelectionForeground": "#FF4081",
         "list.highlightForeground": "#FF4081",
@@ -36,12 +34,12 @@
         "pickerGroup.foreground": "#FF4081",
         "notificationLink.foreground": "#FF4081",
         "editorWidget.border": "#FF4081",
-        "statusBar.background": "#8FBCBB",
-        "statusBar.noFolderBackground": "#8FBCBB",
-        "statusBar.debuggingBackground": "#8FBCBB",
+        "statusBar.background": "#E6E3F7",
+        "statusBar.noFolderBackground": "#E6E3F7",
+        "statusBar.debuggingBackground": "#E6E3F7",
         "statusBar.foreground": "#434C5E"
     },
-    "workbench.colorTheme": "Popping and Locking",
+    "workbench.colorTheme": "Noctis Lilac",
     "workbench.editor.showTabs": true,
     "workbench.iconTheme": "vscode-icons",
     //   "breadcrumbs.enabled": true,
@@ -92,11 +90,10 @@
     "[php]": {
         "editor.defaultFormatter": "kokororin.vscode-phpfmt"
     },
-    "editor.fontSize": 15,
-    "terminal.integrated.fontSize": 13,
+    "editor.fontSize": 10,
     "bookmarks.navigateThroughAllFiles": true,
     "bookmarks.saveBookmarksInProject": true,
-    "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
+    "terminal.integrated.fontFamily": "monospace",
     "[vue]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
@@ -129,5 +126,8 @@
     "[typescriptreact]": {
         "editor.defaultFormatter": "vscode.typescript-language-features"
     },
-    "editor.accessibilitySupport": "off"
+    "editor.accessibilitySupport": "off",
+    "terminal.integrated.fontSize": 18,
+    "editor.suggest.statusBar.visible": true,
+    "tabout.disableByDefault": true
 }

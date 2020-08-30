@@ -35,13 +35,13 @@ alias \
 	gl="git log --all --decorate --oneline --graph" \
 	dot="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME" \
 	gset="git init && git add . && git commit -m 'init'" \
-	gd="git diff" \
 	gaa="git add ." \
 	gam="git commit -am" \
 	wip="git add . && git commit -m 'wip'" \
 	nah="git reset --hard;git clean -df" \
 	diff="diff --color=auto" \
 	magit="nvim -c MagitOnly" \
+	gif="git diff" \
 
 # Directories
 alias \
@@ -63,7 +63,6 @@ alias \
 	c="clear" \
 	e="xdg-open" \
 	b="bat" \
-	v="$EDITOR" \
     grep="grep --color=auto" \
 	cp="cp -iv" \
 	mv="mv -iv" \
