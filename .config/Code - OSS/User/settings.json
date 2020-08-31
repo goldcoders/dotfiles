@@ -129,5 +129,6 @@
     "editor.accessibilitySupport": "off",
     "terminal.integrated.fontSize": 18,
     "editor.suggest.statusBar.visible": true,
-    "tabout.disableByDefault": true
+    "tabout.disableByDefault": true,
+    "window.menuBarVisibility": "hidden"
 }
