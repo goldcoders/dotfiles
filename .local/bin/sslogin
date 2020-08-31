@@ -1,0 +1,1 @@
+sleep 10s; DISPLAY=:0 XAUTHORITY=/var/run/lightdm/root/:0 xwd -root -out /home/uriah/loginscreen.xwd; convert /home/uriah/loginscreen.xwd /home/uriah/loginscreen.png; rm /home/uriah/loginscreen.xwd
