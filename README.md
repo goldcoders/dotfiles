@@ -4,6 +4,9 @@
 
 - This is Very Minimalist Set Up Around 250MB on Fresh Boot Of System
 - Im Using BTRFS Filesystem for My Root Partition, Easy Rollback When System update Causes Error >;)
+- Uses custom cursor "goldcoders" awesome 😎
+
+> Showcasing All my workspace see below images
 
 ![pic-full-200830-0826-07](https://user-images.githubusercontent.com/55337687/91648939-88dbe200-eaa0-11ea-9311-9976dd8c6fff.png)
 ![pic-full-200831-1506-21](https://user-images.githubusercontent.com/55337687/91692569-2962fc80-eb9c-11ea-81f3-9c3cdec237fb.png)
