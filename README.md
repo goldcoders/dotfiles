@@ -1,10 +1,17 @@
-# Huawei Matebook 13 Archlinux Dotfiles
+# My Huawei Matebook 13 - Archlinux Rice
 
-> My Daily Driver Config for Software Development
+> My Daily Driver Config for Software Development (Web/Desktop/Android[mobile])
 
 - This is Very Minimalist Set Up Around 250MB on Fresh Boot Of System
-- Im Using BTRFS Filesystem for My Root Partition, Easy Rollback When System update Causes Error >;)
+- Uses Around 3.5GB Ram when Developing Apps With Flutter (Minimal Requirements)
+- Im Using BTRFS Filesystem ,Snapper and downgrade for Backup and Rollback of System, Perfect for Rolling Release Distro
+- Patched Kernel not to exceed charge threshold set on matebook-applet eg. 70% Max Charge (Extend Battery Lifetime)
+- Fast Reboot/Shutdown with DWM coolscript autostart when using LightDm (fix systemd timeout, when reboot/shutdown)
 - Uses custom cursor "goldcoders" awesome 😎
+- Workflow Optimized for Android/Web Development
+- Uses Custom Keybord Bindings To Easily Navigate / Automate common tasks.
+- Game Using NVIDIA Vulkan Average 150 fps on Dota2 Vulkan Enabled, On Demand GPU capped at 60fps
+- Fast Boot 5 Secs to Login Screen , and beautiful Login Screen
 
 > Showcasing All my workspace see below images
 
