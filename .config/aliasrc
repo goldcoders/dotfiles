@@ -14,6 +14,8 @@ alias \
     nd="netlify deploy --prod" \
     cms="npm run cms" \
     car="cargo" \
+    px="./.venv/bin/python" \
+    vc="v run" \
 
 # This alias is important. It enables the `pauseallmpv` command.
 alias mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)"
