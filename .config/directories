@@ -1,17 +1,16 @@
 # You can add comments to these files with #
+a       ~/.Apps
 h       ~/
-d    ~/Documents
-dl       ~/Downloads
-m       ~/Music
+d       ~/Documents
+D       ~/Documents/.tauri/canopus
+dl      ~/Downloads
+M       ~/Music
 P       ~/Pictures
 V       ~/Videos
 cf      ~/.config
 sc      ~/.local/bin
 www     ~/.www
-a       ~/.Apps
 wm      ~/.Apps/dwm
-z      ~/.thriftshop-site
-zz      ~/.thriftshop-site/thrift-shop-site
-hh      ~/.thriftshop-site/thrift-shop-site/themes/theme
-cnps    ~/Documents/.tauri/canopus
-aa      ~/.tts
+z       ~/.thriftshop-site
+q      ~/.thriftshop-site/thrift-shop-site
+s       ~/.thriftshop-site/thrift-shop-site/themes/theme

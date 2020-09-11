@@ -3,6 +3,7 @@ x-scheme-handler/magnet=torrent.desktop;
 application/x-bittorrent=torrent.desktop;
 x-scheme-handler/mailto=mail.desktop
 text/plain=text.desktop;
+text/html=brave-browser.desktop
 text/x-shellscript=text.desktop;
 application/postscript=pdf.desktop;
 application/pdf=pdf.desktop;
