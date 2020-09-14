@@ -112,6 +112,26 @@ lfcd () {
     fi
 }
 
+# RUST SPECIFIC
+# Cargo Serve
+cargorun() {
+   [ -f ./Cargo.toml ] && cargo run || echo "Not A Valid Rust App"
+}
+# Cargo Check
+cargocheck() {
+   [ -f ./Cargo.toml ] && cargo check || echo "Not A Valid Rust App"
+}
+
+# Cargo Test
+cargotest() {
+   [ -f ./Cargo.toml ] && cargo test || echo "Not A Valid Rust App"
+}
+# arrange in vertical manner so we can easily remember
+bindkey -s '^w' 'cargotest\n'
+bindkey -s '^s' 'cargocheck\n'
+bindkey -s '^x' 'cargorun\n'
+# END RUST SPECIFIC
+
 bindkey -s '^o' 'lfcd\n'  # zsh
 bindkey -s '^a' 'bc -l\n'
 bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n' # find file using fzf
