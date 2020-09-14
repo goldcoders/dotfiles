@@ -134,7 +134,7 @@ bindkey -s '^x' 'cargorun\n'
 # END RUST SPECIFIC
 
 aliases(){
-alias | fzf
+alias| fzf | while read cmd; do echo "${cmd%%=*}"; done | pbcopy
 }
 # view all aliases
 bindkey -s '^a' 'aliases\n'
