@@ -41,11 +41,10 @@ alias \
 	ginit="git init && git add . && git commit -m 'init'" \
 	nah="git reset --hard;git clean -df" \
 	wip="git add . && git commit -m 'wip'" \
-	dot="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME" \
+	dot="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME add" \
 	dots="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME status" \
-	dota="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME add" \
 	dif="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME diff" \
-    com="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME commit" \
+    dom="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME commit" \
 	diff="diff --color=auto" \
 	magit="nvim -c MagitOnly" \
 
