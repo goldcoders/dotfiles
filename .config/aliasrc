@@ -44,7 +44,7 @@ alias \
 	dot="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME add" \
 	dots="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME status" \
 	dif="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME diff" \
-    dom="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME commit" \
+    com="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME commit" \
 	diff="diff --color=auto" \
 	magit="nvim -c MagitOnly" \
 

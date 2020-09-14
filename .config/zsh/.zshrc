@@ -126,14 +126,20 @@ cargocheck() {
 cargotest() {
    [ -f ./Cargo.toml ] && cargo test || echo "Not A Valid Rust App"
 }
+
 # arrange in vertical manner so we can easily remember
 bindkey -s '^w' 'cargotest\n'
 bindkey -s '^s' 'cargocheck\n'
 bindkey -s '^x' 'cargorun\n'
 # END RUST SPECIFIC
 
+aliases(){
+alias | fzf
+}
+# view all aliases
+bindkey -s '^a' 'aliases\n'
 bindkey -s '^o' 'lfcd\n'  # zsh
-bindkey -s '^a' 'bc -l\n'
+#bindkey -s '^a' 'bc -l\n'
 bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n' # find file using fzf
 bindkey '^[[P' delete-char
 
