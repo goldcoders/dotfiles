@@ -9,7 +9,8 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 Plug 'tpope/vim-surround'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 "Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-vinegar'
 "Plug 'tpope/vim-fugitive'
