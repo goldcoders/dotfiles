@@ -7,21 +7,30 @@ command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
 alias \
     px="./.venv/bin/python" \
 
-# Node Modules Installed Via FNM cant be found in $PATH
-# So We Are Creating an Alias Anyway without checking
-# If we Have those commands, We Know We Installed These Cmds
+# add this if were using laravel phpunit
+# t="./vendor/bin/phpunit" \
+
+##################################################
+### Checking If Commands if Found in Our ENV $PATH
+##################################################
+
+# npm aliases
+if [ -x "$(command -v npm)" ]; then
+alias \
+    lb="npm run build" \
+    cms="npm run cms" \
+    nls="npm run serve" \
+    ;
+fi
+
+# netlify aliases
+if [ -x "$(command -v netlify)" ]; then
 alias \
     nb="netlify build --context=prod" \
     dev="netlify dev" \
     nd="netlify deploy --prod" \
-    lb="npm run build" \
-    cms="npm run cms" \
-    nls="npm run serve" \
-
-########################################################################
-### Checking If We have The Commands in Our System Before We Add Aliases
-########################################################################
-
+    ;
+fi
 
 # hugo aliases
 if [ -x "$(command -v hugo)" ]; then

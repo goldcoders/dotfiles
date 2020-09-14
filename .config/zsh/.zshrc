@@ -45,10 +45,6 @@ setopt hist_save_no_dups        # Omit older commands in favor of newer ones.
 setopt hist_ignore_space        # Ignore commands that start with space.
 setopt inc_append_history       # immediate append ,ensures commands are added to history immediately
 
-# Load aliases and shortcuts if existent.
-[ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
-[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
-
 setopt autocd		# Automatically cd into typed directory.
 stty stop undef		# Disable ctrl-s to freeze terminal.
 
@@ -161,6 +157,12 @@ source /usr/share/fzf/completion.zsh 2> /dev/null
 source /usr/share/fzf/key-bindings.zsh 2> /dev/null
 source ./_hub 2> /dev/null
 fpath=(~/.zsh.d/ $fpath)
-eval "$(hub alias -s)"
 eval "$(starship init zsh)"
 eval "$(fnm env --multi)"
+
+# Load aliases and shortcuts if existent.
+[ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
+[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
+
+# needs to be after our aliases , since we have git on our aliases
+eval "$(hub alias -s)"
