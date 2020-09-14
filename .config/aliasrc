@@ -3,34 +3,101 @@
 # Use neovim for vim if present.
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
 
-# Project Aliases
+# Custom Project Relative Bin Executables
+alias \
+    px="./.venv/bin/python" \
+
+# Node Modules Installed Via FNM cant be found in $PATH
+# So We Are Creating an Alias Anyway without checking
+# If we Have those commands, We Know We Installed These Cmds
+alias \
+    nb="netlify build --context=prod" \
+    dev="netlify dev" \
+    nd="netlify deploy --prod" \
+    lb="npm run build" \
+    cms="npm run cms" \
+    nls="npm run serve" \
+
+########################################################################
+### Checking If We have The Commands in Our System Before We Add Aliases
+########################################################################
+
+
+# hugo aliases
+if [ -x "$(command -v hugo)" ]; then
 alias \
     hhh="hugo server -s exampleSite --themesDir=../.. --disableFastRender" \
     htb="hugo -s exampleSite --gc --minify --themesDir ../.." \
-	nb="netlify build --context=prod" \
-    dev="netlify dev" \
-    lb="npm run build" \
-    nls="npm run serve" \
-    nd="netlify deploy --prod" \
-    cms="npm run cms" \
+    ;
+fi
+
+# rust alias
+if [ -x "$(command -v cargo)" ]; then
+alias \
     rs="cargo" \
-    px="./.venv/bin/python" \
+    ;
+fi
+
+# vlang alias
+if [ -x "$(command -v v)" ]; then
+alias \
     vc="v run" \
+    ;
+fi
+
+# youtube-viewer alias
+if [ -x "$(command -v youtube-viewer)" ]; then
+alias \
+    YT="youtube-viewer" \
+    ;
+fi
+
+# youtube-dl aliases
+if [ -x "$(command -v youtube-dl)" ]; then
+alias \
+    yt="youtube-dl --add-metadata -i" \
+	yta="yt -x -f bestaudio/best --audio-format mp3" \
+	;
+fi
 
 # This alias is important. It enables the `pauseallmpv` command.
-alias mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)"
-
-# Personal Aliases
+if [ -x "$(command -v mpv)" ]; then
 alias \
-	yt="youtube-dl --add-metadata -i" \
-	yta="yt -x -f bestaudio/best --audio-format mp3" \
-	YT="youtube-viewer" \
-	ffmpeg="ffmpeg -hide_banner" \
-	sv="sudo nvim" \
-	j="jrnl" \
-	x="sxiv -ft *" \
+    mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)" \
+    ;
+fi
 
-# Git Specifics
+# remove banner for videos
+if [ -x "$(command -v ffmpeg)" ]; then
+alias \
+    ffmpeg="ffmpeg -hide_banner" \
+    ;
+fi
+
+# neovim aliases
+if [ -x "$(command -v nvim)" ]; then
+alias \
+    sv="sudo nvim" \
+	magit="nvim -c MagitOnly" \
+	;
+fi
+
+# journal alias
+if [ -x "$(command -v jrnl)" ]; then
+alias \
+    j="jrnl" \
+    ;
+fi
+
+# sxiv alias
+if [ -x "$(command -v sxiv)" ]; then
+alias \
+    x="sxiv -ft *" \
+    ;
+fi
+
+# git aliases
+if [ -x "$(command -v git)" ]; then
 alias \
     g="git" \
     gs="git status" \
@@ -47,42 +114,66 @@ alias \
     dop="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME push" \
     com="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME commit" \
 	diff="diff --color=auto" \
-	magit="nvim -c MagitOnly" \
+	;
+fi
 
-# Directories
+# Replacement for ls command aliases
+if [ -x "$(command -v exa)" ]; then
+alias \
+    l="exa -l --color=always --group-directories-first" \
+    ls="exa -D --color=always --group-directories-first" \
+	ll="exa -l --color=always --group-directories-first" \
+	la="exa -a --color=always --group-directories-first" \
+	;
+else
+    l="ls" \
+    ls="ls -d */" \
+    ll="ls -lh" \
+    la="ls -la" \
+fi
+
+# Alternative to cat command
+if [ -x "$(command -v bat)" ]; then
+alias \
+    b="bat" \
+    ;
+fi
+
+# Clipboard Aliases
+if [ -x "$(command -v xclip)" ]; then
+alias \
+    pbcopy="xclip -sel clip" \
+	cwd="pwd | xclip -sel clip" \
+    ;
+fi
+
+################################################################
+### Commands Here are Already Available in Our System by Default
+################################################################
+
+# Directories Aliases
 alias \
 	..="cd .." \
 	...="cd ../.." \
 	....="cd ../../.." \
 	.....="cd ../../../.." \
 	......="cd ../../../.." \
-	ls="exa --color=always --group-directories-first" \
-	l="exa -l --color=always --group-directories-first" \
-	la="exa -a --color=always --group-directories-first" \
-	ll="exa -al --color=always --group-directories-first" \
-	ltr="exa -aT --color=always --group-directories-first" \
-	lr="exa -lR --color=always --group-directories-first" \
 
-# File System
+# File System Aliases
 alias \
     r="$FILE" \
 	c="clear" \
 	e="xdg-open" \
-	b="bat" \
     grep="grep --color=auto" \
 	cp="cp -iv" \
 	mv="mv -iv" \
 	rm="rm -vI" \
-	rf="rm -r" \
-	rff="rm -rf" \
+	rf="rm -rf" \
 	mkd="mkdir -pv" \
-    pbcopy="xclip -sel clip" \
-	cwd="pwd | xclip -sel clip" \
-	cmdf="history | rg" \
-	hscl="history -c" \
+	hsc="history -c" \
 	path="echo -e ${PATH//:/\\\n}" \
 
-# Ownership
+# Permissions aliases
 alias \
 	chax="sudo chmod a+x" \
 	chx="chmod +x" \
@@ -96,7 +187,7 @@ alias \
 	sudofy="sudo chown -R root" \
 	perm="stat --printf '%a %n \n'" \
 
-# System
+# System commands Aliases
 alias \
 	p="sudo pacman" \
 	SS="sudo systemctl" \
