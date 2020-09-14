@@ -80,7 +80,7 @@ alias \
 	cwd="pwd | xclip -sel clip" \
 	cmdf="history | rg" \
 	hscl="history -c" \
-	path="echo -e ${PATH//:/\\n}" \
+	path="echo -e ${PATH//:/\\\n}" \
 
 # Ownership
 alias \
