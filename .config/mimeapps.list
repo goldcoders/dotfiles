@@ -31,6 +31,7 @@ application/x-remmina=org.remmina.Remmina.desktop;
 x-scheme-handler/figma=figma-linux.desktop
 application/x-bittorrent=org.qbittorrent.qBittorrent.desktop;
 application/pdf=brave-browser.desktop;
+text/markdown=nvim.desktop;
 
 [Removed Associations]
 application/pdf=userapp-brave-D4CLQ0.desktop;
