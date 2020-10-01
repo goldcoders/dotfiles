@@ -1,2 +1,2 @@
 #!/bin/sh
-pkill -f /dev/video || mpv --vf=hflip --no-osc --no-input-default-bindings --input-conf=/dev/null --geometry=-0-0 --autofit=30%  --title="mpvfloat" /dev/video0
+pkill -f /dev/video || mpv --vf=hflip --profile=low-latency --untimed --no-osc --no-input-default-bindings --input-conf=/dev/null --geometry=-0-0 --autofit=30%  --title=webcam $(ls /dev/video[0,2,4,6,8] | tail -n 1)

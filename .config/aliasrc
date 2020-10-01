@@ -106,10 +106,10 @@ alias \
 fi
 
 # git aliases
+#     gs="git status" \
 if [ -x "$(command -v git)" ]; then
 alias \
     g="git" \
-    gs="git status" \
 	gl="git log --all --decorate --oneline --graph" \
 	gd="git diff" \
 	gam="git commit -am" \
@@ -193,6 +193,7 @@ alias \
 	775="sudo chmod 775" \
 	777="sudo chmod 777" \
 	mine="sudo chown -R $(whoami)" \
+	root="sudo su -" \
 	sudofy="sudo chown -R root" \
 	perm="stat --printf '%a %n \n'" \
 

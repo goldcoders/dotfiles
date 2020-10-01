@@ -17,6 +17,9 @@ export HISTTIMEFORMAT="[%F %T] "
 export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/intel_icd.x86_64.json:/usr/share/vulkan/icd.d/nvidia_icd.json
 export TESSDATA_PREFIX=/usr/share/tessdata
 export PAPERMERGE_CONFIG=/home/uriah/.www/papermerge/papermerge.conf.py
+export CM_LAUNCHER=rofi
+export STARSHIP_CONFIG=~/.config/starship/config.toml
+export STARSHIP_CACHE=~/.config/starship/cache
 
 
 # check if directory
@@ -130,7 +133,7 @@ bindkey -s '^x' 'cargorun\n'
 # END RUST SPECIFIC
 
 aliases(){
-alias| fzf | while read cmd; do echo "${cmd%%=*}"; done | pbcopy
+alias| fzf | while read cmd; do echo "${cmd%%=*}"; done | xclip -sel clip
 }
 # view all aliases
 bindkey -s '^a' 'aliases\n'

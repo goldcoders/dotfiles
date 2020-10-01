@@ -15,7 +15,7 @@ cfmb	~/.config/ncmpcpp/bindings
 cfmc	~/.config/ncmpcpp/config
 cfn	    ~/.config/newsboat/config
 cfp     ~/.profile
-cfs     ~/.config/starship.toml
+cfs     ~/.config/starship/config.toml
 cfu	    ~/.config/newsboat/urls
 cfv	    ~/.config/nvim/init.vim
 cfx     ~/.xprofile

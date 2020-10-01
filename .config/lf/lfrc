@@ -62,6 +62,7 @@ cmd bulkrename ${{
 
 # Bindings
 map <c-f> $lf -remote "send $id select '$(fzf)'"
+#  Not working
 map J $lf -remote "send $id cd $(cut -d'	' -f2 ${XDG_CONFIG_HOME:-$HOME/.config}/directories | fzf)"
 map gh
 map g top
