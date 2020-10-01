@@ -136,7 +136,7 @@ ex=🎯:\
 [ ! -f ${XDG_CONFIG_HOME:-$HOME/.config}/shortcutrc ] && shortcuts >/dev/null 2>&1 &
 
 # Adds `~/.local/bin` to $PATH and other bin folders
-export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//'):$COMPOSER_HOME/vendor/bin:$(ruby -e 'puts Gem.user_dir')/bin:$GOPATH/bin:$JAVA_HOME/bin:$SDKTOOLSBIN:$EMULATORBIN:$PLATFORMTOOLS:$CARGO_HOME/bin"
+export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//'):$COMPOSER_HOME/vendor/bin:$(ruby -e 'puts Gem.user_dir')/bin:$GOPATH/bin:$JAVA_HOME/bin:$SDKTOOLSBIN:$EMULATORBIN:$PLATFORMTOOLS:$CARGO_HOME/bin:$HOME/.yarn/bin"
 
 # Start graphical server on tty1 if not already running.
 [ "$(tty)" = "/dev/tty1" ] && ! ps -e | grep -qw Xorg && exec startx
