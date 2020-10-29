@@ -161,7 +161,7 @@ source /usr/share/fzf/key-bindings.zsh 2> /dev/null
 source ./_hub 2> /dev/null
 fpath=(~/.zsh.d/ $fpath)
 eval "$(starship init zsh)"
-eval "$(fnm env --multi)"
+eval "$(fnm env)"
 
 # Load aliases and shortcuts if existent.
 [ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
