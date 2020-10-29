@@ -107,6 +107,7 @@ fi
 
 # git aliases
 #     gs="git status" \
+#     important to remove dd alias if you need to use that command
 if [ -x "$(command -v git)" ]; then
 alias \
     g="git" \
@@ -114,6 +115,8 @@ alias \
 	gd="git diff" \
 	gam="git commit -am" \
 	gaa="git add ." \
+	ss="git status" \
+	dd="git diff" \
 	ginit="git init && git add . && git commit -m 'init'" \
 	nah="git reset --hard;git clean -df" \
 	wip="git add . && git commit -m 'wip'" \
