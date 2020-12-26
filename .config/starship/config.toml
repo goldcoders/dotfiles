@@ -12,13 +12,10 @@ $dart\
 $golang\
 $nodejs\
 $php\
-$python\
 $rust\
-$zig\
 $cmd_duration\
 $line_break\
 $battery\
-$time\
 $status\
 $character"""
 
@@ -105,21 +102,6 @@ disabled = true
 [rust]
 symbol = "🦀 "
 disabled = true
-
-[time]
-format = "🕙[ %T ]"
-use_12hr = false
-disabled = true
-#time_range = "00:00:00-10:00:00"
-
-[python]
-symbol = " "
-pyenv_version_name = true
-disabled = false
-
-[zig]
-symbol = ""
-disabled = false
 
 [dart]
 format = "via [$symbol$version]($style) "
