@@ -143,3 +143,6 @@ export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$
 
 # Switch escape and caps if tty and no passwd required:
 sudo -n loadkeys ${XDG_DATA_HOME:-$HOME/.local/share}/larbs/ttymaps.kmap 2>/dev/null
+
+# opam configuration
+test -r /home/uriah/.opam/opam-init/init.sh && . /home/uriah/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
