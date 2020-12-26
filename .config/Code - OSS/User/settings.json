@@ -112,5 +112,6 @@
     "[typescript]": {
         "editor.defaultFormatter": "vscode.typescript-language-features"
     },
-    "editor.renameOnType": true
+    "editor.renameOnType": true,
+    "typescript.updateImportsOnFileMove.enabled": "always"
 }
