@@ -65,6 +65,7 @@ fi
 if [ -x "$(command -v youtube-dl)" ]; then
 alias \
     yt="youtube-dl --add-metadata -i" \
+    yt4="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4'"
 	yta="yt -x -f bestaudio/best --audio-format mp3" \
 	;
 fi
@@ -126,6 +127,7 @@ alias \
     dop="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME push" \
     com="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME commit" \
 	diff="diff --color=auto" \
+	basic="git --git-dir=/home/uriah/THRIFTSHOP/basic-functions/.git/ --work-tree=/home/uriah/THRIFTSHOP/basic-functions" \
 	;
 fi
 
@@ -192,6 +194,7 @@ alias \
 	000="sudo chmod 000" \
 	644="sudo chmod 644" \
 	600="sudo chmod 600" \
+	750="sudo chmod 750" \
 	755="sudo chmod 755" \
 	775="sudo chmod 775" \
 	777="sudo chmod 777" \

@@ -21,3 +21,4 @@ cfv	    ~/.config/nvim/init.vim
 cfx     ~/.xprofile
 cfz	    $ZDOTDIR/.zshrc
 etc     /etc/hosts
+cfj    /home/uriah/.config/jrnl/jrnl.yaml
