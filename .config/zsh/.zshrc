@@ -159,7 +159,7 @@ source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.
 source /usr/share/fzf/completion.zsh 2> /dev/null
 source /usr/share/fzf/key-bindings.zsh 2> /dev/null
 source ./_hub 2> /dev/null
-fpath=(~/.zsh.d/ $fpath)
+fpath=($HOME/.config/zsh/.zsh.d/$fpath)
 eval "$(starship init zsh)"
 eval "$(fnm env)"
 
