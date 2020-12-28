@@ -18,6 +18,7 @@ s="cd ~/.thriftshop-site/thrift-shop-site/themes/theme && ls -a" \
 B="cd /mnt/media/backups && ls -a" \
 usb="cd /mnt/media/usb && ls -a" \
 S="cd ~/THRIFTSHOP && ls -a" \
+fl="cd ~/flutter && ls -a" \
 cfa="$EDITOR ~/.config/aliasrc" \
 cfA="$EDITOR ~/.config/alacritty/alacritty.yml" \
 cfb="$EDITOR ~/.config/bookmarks" \

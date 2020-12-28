@@ -33,6 +33,7 @@ Plug 'evanleck/vim-svelte', {'branch': 'main'}
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
 Plug 'Neevash/awesome-flutter-snippets'
+Plug 'easymotion/vim-easymotion'
 call plug#end()
 
 "-------------FILE HISTORY--------------"
@@ -113,7 +114,7 @@ vnoremap <S-Up> :m '<-2<CR>gv=gv
 "/
 "/ NERD TREE
 "/
-nmap `` :NERDTreeToggle<cr>
+nmap ` :NERDTreeToggle<cr>
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 let NERDTreeHijackNetrw = 0
@@ -400,15 +401,18 @@ augroup mygroup
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
-" Applying codeAction to the selected region.
-" Example: `<leader>aap` for current paragraph
-xmap <leader>as  <Plug>(coc-codeaction-selected)
-nmap <leader>as  <Plug>(coc-codeaction-selected)
-
 " Remap keys for applying codeAction to the current line.
-nmap <silent> aa <Plug>(coc-codeaction)
+"nmap <silent> aa <Plug>(coc-codeaction)
+
 " Apply AutoFix to problem on the current line.
-nmap <silent>ff <Plug>(coc-fix-current)
+"nmap <silent>ff <Plug>(coc-fix-current)
+nmap <silent>ff :CocList --input=flutter commands<CR>
+
+
+" Applying codeAction to the selected region.
+" this will work only after pressing jk
+" allow us to wrap widget and other actions when we select a widget
+nmap <silent> <space>a <Plug>(coc-codeaction-selected)
 
 
 " Map function and class text objects
@@ -455,21 +459,21 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings using CoCList:
 " Show all diagnostics.
-nnoremap <silent> <space>d  :<C-u>CocList diagnostics<cr>
+nnoremap <silent><nowait> <space>d  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
 " Show commands.
-nnoremap <silent> <space><space>  :<C-u>CocList commands<cr>
+nnoremap <silent><nowait> <space><space>  :<C-u>CocList commands<cr>
 " Find symbol of current document.
-nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
 " Search workspace symbols.
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
-nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+"nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
-nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+"nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
-nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " COC NVIM END
 
@@ -521,3 +525,19 @@ autocmd FileType dart nnoremap <buffer><Leader>fq :FlutterQuit<cr>
 autocmd FileType dart nnoremap <buffer><Leader>vd :FlutterVisualDebug<cr>
 autocmd FileType dart nnoremap <buffer><Leader>ts :DartToggleFormatOnSave<cr>
 autocmd FileType dart nnoremap <buffer><Leader>rN :CocCommand document.renameCurrentWord<cr>
+
+" folding code tuts
+" to select code inside a block {} use `viB` if you want to include the other vaB
+" then to fold the code use `zf`
+
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+let g:EasyMotion_smartcase = 1
+" single character
+nmap s <Plug>(easymotion-overwin-f)
+" two character
+nmap `` <Plug>(easymotion-overwin-f2)
+" jump on any word
+nmap <silent><nowait> <space>w  <Plug>(easymotion-w)
+" JK motions: Line motions
+nmap <silent><nowait> <space>j  <Plug>(easymotion-j)
+nmap <silent><nowait> <space>k  <Plug>(easymotion-k)
