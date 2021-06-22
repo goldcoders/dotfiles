@@ -95,7 +95,7 @@ fi
 # journal alias
 if [ -x "$(command -v jrnl)" ]; then
 alias \
-    j="jrnl" \
+    j=" jrnl" \
     ;
 fi
 
@@ -190,18 +190,19 @@ alias \
 
 # Permissions aliases
 alias \
-	chax="sudo chmod a+x" \
 	chx="chmod +x" \
+	chax="sudo chmod a+x" \
 	000="sudo chmod 000" \
-	644="sudo chmod 644" \
+	555="sudo chmod 555" \
 	600="sudo chmod 600" \
+	644="sudo chmod 644" \
 	750="sudo chmod 750" \
 	755="sudo chmod 755" \
 	775="sudo chmod 775" \
 	777="sudo chmod 777" \
 	mine="sudo chown -R $(whoami)" \
 	root="sudo su -" \
-	sudofy="sudo chown -R root" \
+	iroot="sudo chown -R root"
 	perm="stat --printf '%a %n \n'" \
 
 # System commands Aliases
@@ -212,13 +213,14 @@ alias \
 	gpgr="gpg-connect-agent RELOADAGENT /bye" \
 	pp="pacman -Slq | fzf -m --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S" \
 	pq="sudo pacman -Qtdq" \
-    ys="yay -Slq | fzf -m --preview 'yay -Si {1}'| xargs -ro yay -S" \
-    yr="yay -Qeq | fzf -m --preview 'yay -Qi {1}' | xargs -ro yay -Rs" \
+    ys="paru -Slq | fzf -m --preview 'paru -Si {1}'| xargs -ro paru -S" \
+    yr="paru -Qeq | fzf -m --preview 'paru -Qi {1}' | xargs -ro paru -Rs" \
 	ka="killall" \
 
+alias yay='paru'
 alias pacsyu='sudo pacman -Syyu'                 # update only standard pkgs
-alias yaysua="yay -Sua --noconfirm"              # update only AUR pkgs
-alias yaysyu="yay -Syu --noconfirm"              # update standard pkgs and AUR pkgs
+alias yaysua="paru -Sua --noconfirm"              # update only AUR pkgs
+alias yaysyu="paru -Syu --noconfirm"              # update standard pkgs and AUR pkgs
 alias unlock="sudo rm /var/lib/pacman/db.lck"    # remove pacman lock
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq)' # remove orphaned packages
 
@@ -253,3 +255,11 @@ alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
 ## get top process eating memory
 alias psmem='ps auxf | sort -nr -k 4'
 alias psmem10='ps auxf | sort -nr -k 4 | head -10'
+
+# remove all swap file
+alias rmswp='rm ~/.local/share/nvim/swap/*.swp'
+
+# emulator
+alias pixel5='emulator @pixel_5.0 -no-boot-anim -netdelay none -no-snapshot -wipe-data -skin 1080x1920 &'
+alias pixel10='emulator @pixel_10.0 -no-boot-anim -netdelay none -no-snapshot -wipe-data -skin 1080x1920 &'
+alias pixel9='emulator @pixel_9.0 -no-boot-anim -netdelay none -no-snapshot -wipe-data -skin 1080x1920 &'
