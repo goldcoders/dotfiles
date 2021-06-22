@@ -44,7 +44,7 @@ export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
 export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 export GNUPGHOME="${XDG_DATA_HOME:-$HOME/.local/share}/gnupg"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
-export ANDROID_SDK_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/android"
+#export ANDROID_SDK_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/android"
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
 export ANDROID_SDK_ROOT=/opt/android-sdk
 export SDKTOOLSBIN=/opt/android-sdk/tools/bin
@@ -136,7 +136,7 @@ ex=🎯:\
 [ ! -f ${XDG_CONFIG_HOME:-$HOME/.config}/shortcutrc ] && shortcuts >/dev/null 2>&1 &
 
 # Adds `~/.local/bin` to $PATH and other bin folders
-export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//'):$COMPOSER_HOME/vendor/bin:$(ruby -e 'puts Gem.user_dir')/bin:$GOPATH/bin:$JAVA_HOME/bin:$SDKTOOLSBIN:$EMULATORBIN:$PLATFORMTOOLS:$CARGO_HOME/bin:$HOME/.yarn/bin"
+export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//'):$COMPOSER_HOME/vendor/bin:$(ruby -e 'puts Gem.user_dir')/bin:$GOPATH/bin:$JAVA_HOME/bin:$SDKTOOLSBIN:$EMULATORBIN:$PLATFORMTOOLS:$CARGO_HOME/bin:$HOME/.yarn/bin:$HOME/fvm/default/bin:$HOME/.pub-cache/bin"
 
 # Start graphical server on tty1 if not already running.
 [ "$(tty)" = "/dev/tty1" ] && ! ps -e | grep -qw Xorg && exec startx
