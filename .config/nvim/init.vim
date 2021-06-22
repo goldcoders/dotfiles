@@ -11,7 +11,6 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 Plug 'tpope/vim-surround'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-fugitive'
@@ -438,8 +437,8 @@ endif
 
 " Use CTRL-S for selections ranges.
 " Requires 'textDocument/selectionRange' support of language server.
-nmap <silent> <C-s> <Plug>(coc-range-select)
-xmap <silent> <C-s> <Plug>(coc-range-select)
+"nmap <silent> <C-s> <Plug>(coc-range-select)
+"xmap <silent> <C-s> <Plug>(coc-range-select)
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
@@ -541,3 +540,18 @@ nmap <silent><nowait> <space>w  <Plug>(easymotion-w)
 " JK motions: Line motions
 nmap <silent><nowait> <space>j  <Plug>(easymotion-j)
 nmap <silent><nowait> <space>k  <Plug>(easymotion-k)
+
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
+
+" source vim
+nnoremap  <leader>sv :source $MYVIMRC <cr>
+
+let g:ruby_host_prog='/home/uriah/.gem/ruby/2.7.0/bin/neovim-ruby-host'
+let g:python_host_prog= '/usr/bin/python2'
+let g:python3_host_prog = '/usr/bin/python3'
