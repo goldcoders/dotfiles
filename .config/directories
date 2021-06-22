@@ -12,10 +12,9 @@ sc  ~/.local/bin
 www     ~/.www
 cnps    ~/.www/canopus
 wm  ~/.Apps/dwm
-z   ~/.thriftshop-site
-q   ~/.thriftshop-site/thrift-shop-site
-s   ~/.thriftshop-site/thrift-shop-site/themes/theme
+tss   /home/uriah/Code/Hugo/.thriftshop-site
 B   /mnt/media/backups
 usb     /mnt/media/usb
 S   ~/THRIFTSHOP
 fl  ~/flutter
+ma  ~/flutter/thriftshop
