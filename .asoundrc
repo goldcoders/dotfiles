@@ -25,3 +25,9 @@ pcm.!default {
    type plug
    slave.pcm hw
 }
+
+pcm.btheadset {
+    type bluetooth
+    device "FF:42:79:34:B3:30" #MAC
+    profile "auto"
+}
