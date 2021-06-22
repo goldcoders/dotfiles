@@ -20,6 +20,7 @@ export PAPERMERGE_CONFIG=/home/uriah/.www/papermerge/papermerge.conf.py
 export CM_LAUNCHER=rofi
 export STARSHIP_CONFIG=~/.config/starship/config.toml
 export STARSHIP_CACHE=~/.config/starship/cache
+export CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
 
 
 # check if directory
@@ -169,3 +170,4 @@ eval "$(fnm env)"
 
 # needs to be after our aliases , since we have git on our aliases
 eval "$(hub alias -s)"
+eval "$(zoxide init zsh)"
