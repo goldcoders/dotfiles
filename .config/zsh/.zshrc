@@ -157,8 +157,14 @@ bindkey -M main ' ' expand-alias
 
 # Add All Syntax Highlighting Below
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
+#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh 2>/dev/null
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
+bindkey '^ ' autosuggest-accept
+
+# FZF
 source /usr/share/fzf/completion.zsh 2> /dev/null
 source /usr/share/fzf/key-bindings.zsh 2> /dev/null
+
 source ./_hub 2> /dev/null
 fpath=($HOME/.config/zsh/.zsh.d/$fpath)
 eval "$(starship init zsh)"
