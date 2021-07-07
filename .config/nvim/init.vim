@@ -19,7 +19,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-commentary'
-Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'preservim/nerdcommenter'
@@ -33,6 +33,10 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
 Plug 'Neevash/awesome-flutter-snippets'
 Plug 'easymotion/vim-easymotion'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'natebosch/dartlang-snippets'
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 "-------------FILE HISTORY--------------"
@@ -88,6 +92,10 @@ nmap <silent> bl :ls<CR>
 
 set autowrite  "Save on buffer switch "
 
+noremap <silent> <C-S>          :update<CR>
+vnoremap <silent> <C-S>         <C-C>:update<CR>
+inoremap <silent> <C-S>         <C-O>:update<CR>
+
 
 "-------------GENERAL SETTINGS--------------"
 set showmode                    " always show what mode we're currently editing in "
@@ -117,6 +125,8 @@ nmap ` :NERDTreeToggle<cr>
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 let NERDTreeHijackNetrw = 0
+let g:NERDTreeGitStatusWithFlags = 1
+
 
 "/
 "/ NERD TREE SYNTAX HIGHLIGHT
@@ -152,18 +162,18 @@ let g:NERDTreeIndicatorMapCustom = {
 "/
 "/ CtrlP
 "/
-
-map <C-p> :CtrlP<cr>
-nmap <C-t> :CtrlPBufTag<cr>
-nmap <C-e> :CtrlPMRUFiles<cr>
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|tags\|bootstrap\|tests\|vendor\|storage\|laradock\|docker\|npm-debug|build|dist'
-let g:ctrlp_match_window = 'top,order:ttb,min:1,max:30,results:30'
+nmap <C-P> :FZF<CR>
+"map <C-p> :CtrlP<cr>
+"nmap <C-t> :CtrlPBufTag<cr>
+"nmap <C-e> :CtrlPMRUFiles<cr>
+"let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|tags\|bootstrap\|tests\|vendor\|storage\|laradock\|docker\|npm-debug|build|dist'
+"let g:ctrlp_match_window = 'top,order:ttb,min:1,max:30,results:30'
 
 " I don't want to pull up these folders/files when calling CtrlP "
-set wildignore+=*/vendor/**
-set wildignore+=*/node_modules/**
-set wildignore+=*/tags/**
-set wildignore+=*/build/**
+"set wildignore+=*/vendor/**
+"set wildignore+=*/node_modules/**
+"set wildignore+=*/tags/**
+"set wildignore+=*/build/**
 
 
 "Once CtrlP is open:
@@ -200,7 +210,7 @@ set incsearch                               " Incrementally highlight, as we typ
 
 nnoremap <F3> :set hlsearch!<CR>
 nnoremap <m-h> :set hlsearch!<CR>
-nmap <A-space> :nohlsearch<cr>
+"nmap <A-space> :nohlsearch<cr>
 
 "-------------INDENTION--------------"
 set autoindent                  " always set autoindenting on "
@@ -294,12 +304,16 @@ set shiftround                  " use multiple of shiftwidth when indenting with
 " Run DartFmt whenever We edit .dart files
     autocmd BufWritePost FileType dart  *.dart :DartFmt
 
+    let g:dart_format_on_save = 1
+
+
 "" dwmblocks
     autocmd BufWritePost */dwmblocks/config.h !sudo make install && { killall -q dwmblocks;setsid dwmblocks }
 
 " Add Commenter
-nmap <C-_>   <Plug>NERDCommenterToggle
-vmap <C-_>   <Plug>NERDCommenterToggle<CR>gv
+let g:NERDToggleCheckAllLines = 1
+nmap <a-/>   <Plug>NERDCommenterToggle
+vmap <a-/>   <Plug>NERDCommenterToggle<CR>gv
 
 " COC NVIM START
 " TextEdit might fail if hidden is not set.
@@ -321,7 +335,7 @@ set shortmess+=c
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
-if has("patch-8.1.1564")
+if has("nvim-0.5.0") || has("patch-8.1.1564")
   " Recently vim can merge signcolumn and number column into one
   set signcolumn=number
 else
@@ -335,19 +349,20 @@ set signcolumn=yes
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+"inoremap <silent><expr> <TAB>
+      "\ pumvisible() ? "\<C-n>" :
+      "\ <SID>check_back_space() ? "\<TAB>" :
+      "\ coc#refresh()
+"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+"function! s:check_back_space() abort
+  "let col = col('.') - 1
+  "return !col || getline('.')[col - 1]  =~# '\s'
+"endfunction
 
 " Use <c-space> to trigger completion.
 if has('nvim')
+  inoremap <silent><expr> <m-.> coc#refresh()
   inoremap <silent><expr> <c-space> coc#refresh()
 else
   inoremap <silent><expr> <c-@> coc#refresh()
@@ -389,8 +404,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-xmap <leader>fs  <Plug>(coc-format-selected)
-nmap <leader>fs  <Plug>(coc-format-selected)
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
@@ -401,17 +416,17 @@ augroup mygroup
 augroup end
 
 " Remap keys for applying codeAction to the current line.
-"nmap <silent> aa <Plug>(coc-codeaction)
+nmap <m-.> <Plug>(coc-codeaction)
+
+
 
 " Apply AutoFix to problem on the current line.
-"nmap <silent>ff <Plug>(coc-fix-current)
-nmap <silent>ff :CocList --input=flutter commands<CR>
-
+nmap <m-f> <Plug>(coc-fix-current)
 
 " Applying codeAction to the selected region.
 " this will work only after pressing jk
 " allow us to wrap widget and other actions when we select a widget
-nmap <silent> <space>a <Plug>(coc-codeaction-selected)
+""nmap <silent> <addnew> <Plug>(coc-codeaction-selected)
 
 
 " Map function and class text objects
@@ -425,7 +440,7 @@ omap ic <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
-"" Remap <C-f> and <C-b> for scroll float windows/popups.
+" Remap <C-f> and <C-b> for scroll float windows/popups.
 if has('nvim-0.4.0') || has('patch-8.2.0750')
   nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
   nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
@@ -444,11 +459,15 @@ endif
 command! -nargs=0 Format :call CocAction('format')
 
 " Add `:Fold` command to fold current buffer.
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+"command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
 
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-nnoremap <silent> oo  :OR<cr>
+"nnoremap <silent><leader>o  :OR<cr>
+nnoremap <m-F> :OR<CR>
+
+
 
 
 " Add (Neo)Vim's native statusline support.
@@ -472,35 +491,35 @@ nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 " Do default action for previous item.
 "nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
-nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+"nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " COC NVIM END
 
 
 " Dart
 " Format Code by FileType
-autocmd FileType dart nnoremap <buffer><Leader>f :DartFmt<cr>
-autocmd FileType rs nnoremap <buffer><Leader>f :RustFmt<cr>
+"autocmd FileType dart nnoremap <buffer><Leader>f :DartFmt<cr>
+"autocmd FileType rs nnoremap <buffer><Leader>f :RustFmt<cr>
 
 
 " VIM LSC
 let g:lsc_server_commands = {'dart': 'dart_language_server'}
-let g:lsc_enable_autocomplete = v:true
-let g:lsc_auto_map = {
-    \ 'GoToDefinition': '<leader>gg',
-    \ 'GoToDefinitionSplit': ['<leader>sp', '<leader>vsp'],
-    \ 'FindReferences': '<leader>ff',
-    \ 'NextReference': '<leader>n',
-    \ 'PreviousReference': '<leader>p',
-    \ 'FindImplementations': '<leader>ii',
-    \ 'FindCodeActions': '<leader>ca',
-    \ 'Rename': '<leader>rn',
-    \ 'ShowHover': v:true,
-    \ 'DocumentSymbol': '<leader>ds',
-    \ 'WorkspaceSymbol': '<leader>s',
-    \ 'SignatureHelp': '<leader>sh',
-    \ 'Completion': 'completefunc',
-    \}
+let g:lsc_enable_autocomplete = v:false
+"let g:lsc_auto_map = {
+    "\ 'GoToDefinition': '<leader>gg',
+    "\ 'GoToDefinitionSplit': ['<leader>sp', '<leader>vsp'],
+    "\ 'FindReferences': '<leader>ff',
+    "\ 'NextReference': '<leader>n',
+    "\ 'PreviousReference': '<leader>p',
+    "\ 'FindImplementations': '<leader>ii',
+    "\ 'FindCodeActions': '<leader>ca',
+    "\ 'Rename': '<leader>rn',
+    "\ 'ShowHover': v:true,
+    "\ 'DocumentSymbol': '<leader>ds',
+    "\ 'WorkspaceSymbol': '<leader>s',
+    "\ 'SignatureHelp': '<leader>sh',
+    "\ 'Completion': 'completefunc',
+    "\}
 " Vim Fugitive
 nmap <leader>gj :diffget //3<CR>
 nmap <leader>gf :diffget //2<CR>
@@ -512,18 +531,18 @@ nnoremap <m-c> :call CocAction('pickColor')<CR>
 nnoremap <m-C> :call CocAction('colorPresentation')<CR>
 nnoremap <m-g> :GitGutterToggle<CR>
 
-let g:svelte_indent_script = 0
-let g:svelte_indent_style = 0
-let g:svelte_preprocessors = ['typescript']
-
 " Flutter Commands
 autocmd FileType dart nnoremap <buffer><Leader>fr :FlutterRun --enable-software-rendering<cr>
 autocmd FileType dart nnoremap <buffer><Leader>r :FlutterHotReload<cr>
+nnoremap <leader>fd :below new output:///flutter-dev <CR>
+autocmd FileType dart nnoremap <buffer><Leader>fD :FlutterDevices<cr>
+"autocmd FileType dart nnoremap <buffer><Leader>fe :FlutterEmulators<cr>
+nnoremap <leader>fe :CocCommand flutter.emulators <CR>
 autocmd FileType dart nnoremap <buffer><Leader>R :FlutterHotRestart<cr>
 autocmd FileType dart nnoremap <buffer><Leader>fq :FlutterQuit<cr>
 autocmd FileType dart nnoremap <buffer><Leader>vd :FlutterVisualDebug<cr>
-autocmd FileType dart nnoremap <buffer><Leader>ts :DartToggleFormatOnSave<cr>
-autocmd FileType dart nnoremap <buffer><Leader>rN :CocCommand document.renameCurrentWord<cr>
+"autocmd FileType dart nnoremap <buffer><Leader>ts :DartToggleFormatOnSave<cr>
+"autocmd FileType dart nnoremap <buffer><Leader>rN :CocCommand document.renameCurrentWord<cr>
 
 " folding code tuts
 " to select code inside a block {} use `viB` if you want to include the other vaB
@@ -532,22 +551,15 @@ autocmd FileType dart nnoremap <buffer><Leader>rN :CocCommand document.renameCur
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 let g:EasyMotion_smartcase = 1
 " single character
-nmap s <Plug>(easymotion-overwin-f)
-" two character
-nmap `` <Plug>(easymotion-overwin-f2)
-" jump on any word
-nmap <silent><nowait> <space>w  <Plug>(easymotion-w)
-" JK motions: Line motions
-nmap <silent><nowait> <space>j  <Plug>(easymotion-j)
-nmap <silent><nowait> <space>k  <Plug>(easymotion-k)
+nmap f <Plug>(easymotion-overwin-f)
 
-inoremap " ""<left>
-inoremap ' ''<left>
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
-inoremap {<CR> {<CR>}<ESC>O
-inoremap {;<CR> {<CR>};<ESC>O
+" two character
+"nmap `` <Plug>(easymotion-overwin-f2)
+" jump on any word
+"nmap <silent><nowait> <space>w  <Plug>(easymotion-w)
+" JK motions: Line motions
+"nmap <silent><nowait> <space>j  <Plug>(easymotion-j)
+"nmap <silent><nowait> <space>k  <Plug>(easymotion-k)
 
 " source vim
 nnoremap  <leader>sv :source $MYVIMRC <cr>
@@ -555,3 +567,24 @@ nnoremap  <leader>sv :source $MYVIMRC <cr>
 let g:ruby_host_prog='/home/uriah/.gem/ruby/2.7.0/bin/neovim-ruby-host'
 let g:python_host_prog= '/usr/bin/python2'
 let g:python3_host_prog = '/usr/bin/python3'
+
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
+
+"coc config
+let g:coc_global_extensions = [
+  \ 'coc-snippets',
+  \ 'coc-flutter',
+  \  'coc-yaml'
+  \ ]
+
+imap <tab> <Plug>(coc-snippets-expand)
+let g:UltiSnipsExpandTrigger = '<Nop>'
+let g:coc_snippet_next = '<TAB>'
+let g:coc_snippet_prev = '<S-TAB>'
+" Svelte
+let g:svelte_indent_script = 0
+let g:svelte_indent_style = 0
+let g:svelte_preprocessors = ['typescript']
