@@ -1,1 +1,3 @@
+system-images;android-21;google_apis;x86_64
 system-images;android-28;google_apis;x86_64
+system-images;android-29;google_apis;x86_64

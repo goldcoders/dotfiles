@@ -1,0 +1,5 @@
+#!/bin/sh
+# Feed this script a link and it will give dmenu
+# some choice programs to use to open it.
+
+emulator -list-avds | dmenu -sb "#FE80AB" -i -p "Please Choose A Device:" | xargs -I % emulator @% -no-boot-anim -no-snapshot -netdelay none -wipe-data -skin 1080x1920
