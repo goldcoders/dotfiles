@@ -1,2 +1,4 @@
 #!/bin/sh
-echo "pie(9.0) - api 28"
+echo "lollipop(5.0) - api 21
+pie(9.0) - api 28
+android q - api 29"
