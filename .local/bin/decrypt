@@ -2,3 +2,4 @@
 filename="${1?}"
 name=$(echo "$filename" | cut -f 1 -d '.')
 gpg --decrypt $filename > "${name}.txt"
+nvim "${name}.txt"
