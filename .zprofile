@@ -56,6 +56,9 @@ export AWS_CONFIG_FILE=$XDG_CONFIG_HOME/aws/config
 export AWS_PROFILE=default #testing
 export AWS_DEFAULT_REGION=us-west-2
 
+# DENO_INSTALL
+export DENO_INSTALL=$HOME/.deno
+
 
 # Run Daemon move to dwm
 #mpd >/dev/null 2>&1 &
@@ -136,7 +139,7 @@ ex=🎯:\
 [ ! -f ${XDG_CONFIG_HOME:-$HOME/.config}/shortcutrc ] && shortcuts >/dev/null 2>&1 &
 
 # Adds `~/.local/bin` to $PATH and other bin folders
-export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//'):$COMPOSER_HOME/vendor/bin:$(ruby -e 'puts Gem.user_dir')/bin:$GOPATH/bin:$JAVA_HOME/bin:$SDKTOOLSBIN:$EMULATORBIN:$PLATFORMTOOLS:$CARGO_HOME/bin:$HOME/.yarn/bin:$HOME/fvm/default/bin:$HOME/.pub-cache/bin"
+export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//'):$COMPOSER_HOME/vendor/bin:$(ruby -e 'puts Gem.user_dir')/bin:$GOPATH/bin:$JAVA_HOME/bin:$SDKTOOLSBIN:$EMULATORBIN:$PLATFORMTOOLS:$CARGO_HOME/bin:$HOME/.yarn/bin:$HOME/fvm/default/bin:$HOME/.pub-cache/bin:$DENO_INSTALL/bin"
 
 # Start graphical server on tty1 if not already running.
 [ "$(tty)" = "/dev/tty1" ] && ! ps -e | grep -qw Xorg && exec startx
