@@ -223,6 +223,9 @@ alias yaysua="paru -Sua --noconfirm"              # update only AUR pkgs
 alias yaysyu="paru -Syu --noconfirm"              # update standard pkgs and AUR pkgs
 alias unlock="sudo rm /var/lib/pacman/db.lck"    # remove pacman lock
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq)' # remove orphaned packages
+alias lone_dkms='for i in /var/lib/dkms/*/[^k]*/source; do [ -e "$i" ] || echo "$i";done'
+# check for lone dkms packages, then delete those files
+# make sure to use `sudo dkms autoinstall`
 
 # get error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
