@@ -146,6 +146,8 @@ bindkey '^[[P' delete-char
 # Edit line in vim with ctrl-e
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
+# Tmux Keybinding
+bindkey -s '^b' 'tmux-sessionizer\n'
 
 # Expand All Aliases when pressing spacebar
 function expand-alias() {
@@ -177,3 +179,6 @@ eval "$(fnm env)"
 # needs to be after our aliases , since we have git on our aliases
 eval "$(hub alias -s)"
 eval "$(zoxide init zsh)"
+
+source /home/uriah/.gvm/scripts/gvm
+export GOROOT_BOOTSTRAP=$GOROOT
