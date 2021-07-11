@@ -209,6 +209,8 @@ alias \
 alias \
 	p="sudo pacman" \
 	SS="sudo systemctl" \
+	rz="source ~/.config/zsh/.zshrc" \
+	rp="source ~/.profile" \
 	ref="shortcuts >/dev/null; source ~/.config/shortcutrc; source ~/.config/aliasrc;" \
 	gpgr="gpg-connect-agent RELOADAGENT /bye" \
 	pp="pacman -Slq | fzf -m --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S" \
