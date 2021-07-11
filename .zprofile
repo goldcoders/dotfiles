@@ -41,7 +41,8 @@ export _JAVA_AWT_WM_NONREPARENTING=1	# Fix for Java applications in dwm
 export COMPOSER_HOME=$HOME/.config/composer
 export COMPOSER_CACHE_DIR=$HOME/.cache/composer
 export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
-export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
+# remove since we have gvm
+#export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 export GNUPGHOME="${XDG_DATA_HOME:-$HOME/.local/share}/gnupg"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
 #export ANDROID_SDK_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/android"
@@ -139,7 +140,8 @@ ex=🎯:\
 [ ! -f ${XDG_CONFIG_HOME:-$HOME/.config}/shortcutrc ] && shortcuts >/dev/null 2>&1 &
 
 # Adds `~/.local/bin` to $PATH and other bin folders
-export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//'):$COMPOSER_HOME/vendor/bin:$(ruby -e 'puts Gem.user_dir')/bin:$GOPATH/bin:$JAVA_HOME/bin:$SDKTOOLSBIN:$EMULATORBIN:$PLATFORMTOOLS:$CARGO_HOME/bin:$HOME/.yarn/bin:$HOME/fvm/default/bin:$HOME/.pub-cache/bin:$DENO_INSTALL/bin"
+# remove since we have gvm $GOPATH/bin
+export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//'):$COMPOSER_HOME/vendor/bin:$(ruby -e 'puts Gem.user_dir')/bin:$JAVA_HOME/bin:$SDKTOOLSBIN:$EMULATORBIN:$PLATFORMTOOLS:$CARGO_HOME/bin:$HOME/.yarn/bin:$HOME/fvm/default/bin:$HOME/.pub-cache/bin:$DENO_INSTALL/bin"
 
 # Start graphical server on tty1 if not already running.
 [ "$(tty)" = "/dev/tty1" ] && ! ps -e | grep -qw Xorg && exec startx
