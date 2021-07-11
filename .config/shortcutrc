@@ -36,6 +36,7 @@ cfmc="$EDITOR ~/.config/ncmpcpp/config" \
 cfn="$EDITOR ~/.config/newsboat/config" \
 cfp="$EDITOR ~/.profile" \
 cfs="$EDITOR ~/.config/starship/config.toml" \
+cft="$EDITOR ~/.config/tmux/tmux.conf" \
 cfu="$EDITOR ~/.config/newsboat/urls" \
 cfv="$EDITOR ~/.config/nvim/init.vim" \
 cfx="$EDITOR ~/.xprofile" \
